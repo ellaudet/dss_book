@@ -224,6 +224,18 @@
             display: inline;
         	}
     	}
+	    
+	/* Hide text on screens smaller than 768px (common breakpoint for tablets and below) */
+	.desktop-only {
+    		display: none;
+		}
+
+	/* Show text on screens larger than 768px (common breakpoint for desktops) */
+	@media (min-width: 768px) {
+    		.desktop-only {
+        	display: block;
+    	}
+}
 
     </style>
 </head>
@@ -235,15 +247,18 @@
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
             <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>
             <h2>Elena Llaudet and Kosuke Imai</h2>
+
+	<div class="desktop-only">
 	    <h3>An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science.</h3>
 
-	<p style="font-size: 0.8em;">
+		<p style="font-size: 0.8em;">
     		<a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a> |
     		<br class="conditional-break">
 		<a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a> |
     		<br class="conditional-break">
     		<a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a>
 	</p>
+	</div>
 
         </div>
     </div>
