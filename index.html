@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analysis for Social Science</title>
+    <title>Data Analysis for Social Science (DSS)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,17 +88,6 @@
             color: #888;
         }
 
-        @media (max-width: 600px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav span {
-                display: none;
-            }
-        }
-
         .content {
             padding: 10px 20px;
             background-color: #f4f4f4;
@@ -113,6 +102,35 @@
             border: 1px solid #ddd;
         }
 
+	.top-content {
+ 	   display: flex;
+    	   gap: 40px;
+	   margin-bottom: 40px;
+	   align-items: flex-start; /* This ensures all items start from the top */
+	   padding: 0; /* Remove any padding that might affect alignment */
+	}    
+	    
+	.book-image {
+		    flex: 0 0 200px; /* Adjust width as necessary */
+		    margin-top: 0; /* Ensure no top margin */
+	    }
+	    
+	.book-image img {
+    		width: 100%;
+    		height: auto;
+    		border-radius: 5px;
+    		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    		display: block; /* Ensures no extra space at bottom of image */
+	}
+
+        .intro-content {
+            flex: 1;
+        }
+
+	.intro-content h2, .intro-content h3 {
+		margin-top: 0; /* Removes the top margin pushing the text down */
+	}    
+
         p {
             text-align: justify;
             margin: 1em 0;
@@ -126,37 +144,106 @@
         a:hover {
             text-decoration: underline;
         }
+        
+        .highlight {
+            color: #d32f2f;
+            font-size: 1.1em;
+            margin-top: 1.5em;
+            margin-bottom: 0.2em;
+            font-weight: 500;
+        }
+        
+	    h3 {
+            color: #666;
+	    font-size: 1em;
+            margin-top: 0;
+            margin-bottom: 0.2em;
+	    font-weight: 500;	    
+        }
+
+	    .author {
+            margin-bottom: 1.5em;
+	    font-size: 1em; /* Set the font size to match your standard text size */
+    	    font-weight: normal; /* Remove bold styling */
+        }
+
+        .quote {
+            margin-left: 0px;
+            margin-bottom: 1em;
+        }
+	
+	@media (max-width: 768px) {
+            .top-content {
+                flex-direction: column;
+            }
+
+            .book-image {
+                flex: 0 0 auto;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .nav span {
+                display: none;
+            }
+        }
+
+	/* Hide the break on large screens */
+    	.conditional-break {
+        	display: none;
+    	}
+
+    	/* Show the break on screens smaller than 1000px */
+    	@media (max-width: 850px) {
+        .conditional-break {
+            display: block;
+        	}
+    	}
+
+	/* Hide the break on small screens */
+    	.break-large-screen {
+        display: none;
+    	}
+
+    	/* Show the break on screens wider than 400px */
+    	@media (min-width: 850px) {
+        .break-large-screen {
+            display: inline;
+        	}
+    	}
+
     </style>
 </head>
 <body>
-
+    
     <div class="header">
-        <img src="../images/dss.png" alt="Elena Llaudet">
+        <img src="../images/DSS.png" alt="Elena Llaudet">
         <div class="header-content">
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
             <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>
             <h2>Elena Llaudet and Kosuke Imai</h2>
         </div>
     </div>
-
+	
     <div class="nav">
-        <a href="https://ellaudet.github.io/dss_book" class="nav-link active">HOME</a>
+        <a href="https://ellaudet.github.io/" class="nav-link inactive">HOME</a>
         <span>|</span>
-        <a href="https://ellaudet.github.io/review_exercises/" class="nav-link inactive">REVIEW EXERCISES</a>
+        <a href="https://ellaudet.github.io/research/" class="nav-link inactive">RESEARCH</a>
         <span>|</span>
-        <a href="https://ellaudet.github.io/interactive_graphs/" class="nav-link inactive">INTERACTIVE GRAPHS</a>
+        <a href="https://ellaudet.github.io/teaching/" class="nav-link inactive">TEACHING</a>
         <span>|</span>
-        <a href="https://ellaudet.github.io/videos/" class="nav-link inactive">VIDEOS</a>
+        <a href="https://ellaudet.github.io/dss/" class="nav-link active">DATA ANALYSIS FOR SOCIAL SCIENCE (DSS)</a>
+        <span>|</span>
+        <a href="https://ellaudet.github.io/dss_resources/" class="nav-link inactive">DSS INSTRUCTOR RESOURCES</a>
     </div>
 
-    <!-- Content Section -->
-<div class="content">
+    <div class="content">
         <div class="top-content">
             <div class="book-image">
                 <img src="../images/DSS.png" alt="Data Analysis for Social Science">
             </div>
             
-<div class="intro-content">
+            <div class="intro-content">
 		<br class="break-large-screen">    
                 <h2 class="highlight">DATA ANALYSIS FOR SOCIAL SCIENCE:</h2>
                 <h3>A FRIENDLY AND PRACTICAL INTRODUCTION</h3>
@@ -168,7 +255,7 @@
                     <a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a> |
                     <a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a> |
 		<br class="conditional-break">
-		                <a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a> |
+		    <a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a> |
                     <a href="https://suffolk.co1.qualtrics.com/jfe/form/SV_b4m4HmOumNWHY6W" target="_blank">Provide Feedback</a>
                 </p>
 
