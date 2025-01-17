@@ -554,10 +554,14 @@ In chapter 2, we learn what causal effects are and how to estimate them using ra
 </div>	
 <pre>&nbsp;</pre>    
 
-    <script>
-        document.querySelectorAll('a:not(.nav-link)').forEach(link => {
+<script>
+    document.querySelectorAll('a:not(.nav-link)').forEach(link => {
+        // Check if the link does not start with '#'
+        if (!link.getAttribute('href').startsWith('#')) {
             link.setAttribute('target', '_blank');
-        });
-    </script>
+        }
+    });
+</script>
+	
 </body>
 </html>
