@@ -234,8 +234,77 @@
 	@media (min-width: 768px) {
     		.desktop-only {
         	display: block;
-    	}
-}
+    		}
+	}
+
+	.container {
+    	max-width: 700px;
+    	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
+    	padding: 20px;
+    	background-color: #fff;
+    	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
+	    
+	.container h2, .container p, .container ul, .container li {
+    	margin-top: 0; /* Remove top margin */
+    	margin-bottom: 0; /* Remove bottom margin */
+    	padding: 0; /* No padding inside elements */
+	}
+
+	.container h2 {
+    	color: #d32f2f;
+    	border-bottom: 2px solid #d32f2f;
+    	padding-bottom: 10px; /* Optional: add padding below the header if needed */
+	}
+
+	.container p, .container ul {
+    	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
+    	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
+	}
+
+	.container ul {
+    	padding-left: 20px; /* Keep list indentation */
+	}
+
+	.container a {
+    	color: #d32f2f;
+    	text-decoration: none;
+	}
+
+	.container a:hover {
+    	text-decoration: underline;
+	}
+
+	.container p {
+            margin-bottom: 0; /* Ensures no extra space after the paragraph */
+        }
+        .container ul {
+            margin-top: 0; /* Ensures no extra space before the list */
+        }
+        .container ul li {
+            margin-bottom: 0.5em; /* Adds space after each list item */
+        }
+	    
+	ul {
+    	margin-bottom: 0.5em; /* Adds a half-line space after the entire list */
+	}
+
+	ul li {
+    	margin-bottom: 0.5em; /* Adds a half-line space after each list item */
+	}
+
+	ul > li > ul {
+ 	   margin-left: 20px;
+    	   padding-left: 0;
+	}   
+
+	.container ul li {
+	    margin-bottom: 0.4em; /* Removes extra space after each list item */
+	}
+
+	.container ul li ul {
+    	padding-top: 0; /* Reduces space before the start of a nested list */
+	}
 
     </style>
 </head>
@@ -258,8 +327,6 @@
     		<br class="conditional-break">
     		<a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a>
 	</p>
-	
-
         </div>
     </div>
 	
@@ -268,9 +335,19 @@
         <span>|</span>
         <a href="https://ellaudet.github.io/dss_book/dss_student_resources/" class="nav-link inactive">STUDENT RESOURCES</a>
     </div>
+
+    <div class="container">
+   	<p style="color: #666; margin-bottom: 0;"><em>What's On This Page?</em></p>
+    		<ul>
+			<li><a href="#praise">Selected Praise</a></li>
+			<li><a href="#overview">Book Overview</a></li>
+			<li><a href="#chapters">Chapter Summaries</a></li>
+			<li><a href="#features">Features</a></li>
+			</ul>
+	</div>
 	
     <div class="content">
-       <h2 class="highlight">SELECTED PRAISE</h2>
+       <h2 class="highlight"><a id="praise">SELECTED PRAISE</a></h2>
         <p class="quote">"I love this book. More importantly, my students love this book." <strong>— Anna Harvey, NYU</strong></p>
         <p class="quote">"This is without doubt the best book to get started with data analysis in the social sciences. My students—all of them complete novices—were easily able to conduct their own analyses after working through this book." <strong>— Simon Weschle, Syracuse University</strong></p>
         <p class="quote">"[This book] is a game changer! I have been teaching quantitative methods for 14 years, and I never had such good results and engagement from my students until I adopted this book." <strong>— Javier Sajuria, Queen Mary University of London</strong></p>
@@ -286,12 +363,12 @@
         <p class="quote">“I don’t think I’ve seen a more accessible introduction to R and RStudio—cheat sheets included!” <strong>— Didier Ruedin, University of Neuchâtel</strong></p>
         <p class="quote">"[T]he instructor resources that come with it are the best I've seen provided with a textbook and made adopting the book much easier.” <strong>— Mark Richardson, Georgetown University</strong></p>
 
-        <h2 class="highlight">OVERVIEW</h2>
+        <h2 class="highlight"><a id="overview">BOOK OVERVIEW<a/></h2>
         <p>Assuming no prior knowledge of statistics or coding and only minimal knowledge of math, <em>Data Analysis for Social Science</em> (DSS for short) teaches the fundamentals of survey research, predictive models, and causal inference, plus how to analyze real-world data with the free and popular statistical program R.</p>
         <p>It progresses by teaching how to solve one kind of problem after another, bringing in methods as needed. It teaches, in this order, how to (1) estimate causal effects with randomized experiments, (2) visualize and summarize data, (3) infer population characteristics, (4) predict outcomes, (5) estimate causal effects with observational data, and (6) generalize from sample to population.</p>
         <p>It flips the script of traditional statistics textbooks. It starts by estimating causal effects with randomized experiments and postpones any discussion of probability and statistical inference until the final chapters. This unconventional order engages students by demonstrating from the very beginning how data analysis can be used to answer interesting questions, while reserving more abstract, complex concepts for later chapters.</p>
 
-        <h2 class="highlight">CHAPTER SUMMARIES</h2>
+        <h2 class="highlight"><a id="chapters">CHAPTER SUMMARIES</a></h2>
         <p>In chapter 1, we start from the very beginning by familiarizing ourselves with RStudio and R and learning to load and make sense of data. (Full chapter available for free <a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">here</a>.)</p>
         <p>In chapter 2, we learn what causal effects are and how to estimate them using randomized experiments. We analyze data from Project STAR to answer: What is the effect of small classes on student performance?</p>
         <p>In chapter 3, we learn about surveys and how to visualize and summarize the distribution of single variables as well as the relationship between two variables. We analyze data on the 2016 British referendum to answer: Who Supported Brexit?</p>
@@ -300,7 +377,7 @@
         <p>In chapter 6, we cover basic probability. We learn about random variables and their distributions, the distinction between population parameters and sample statistics, and the two large sample theorems that enable us to measure statistical uncertainty.</p>
         <p>In chapter 7, we learn how to quantify the uncertainty in our empirical findings in order to draw conclusions at the population level. We complete some of the analyses we started in chapters 2 through 5.</p>
         
-        <h2 class="highlight">FEATURES / HIGHLIGHTS</h2>
+        <h2 class="highlight"><a id="features">FEATURES</a></h2>
         <ul>
             <li><p>Provides a step-by-step guide to analyzing real-world data using the powerful, open-source statistical program R, which is free for everyone to use. The datasets are provided on the <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">book’s website</a> so that readers can learn how to analyze data by following along with the exercises in the book on their own computer.</p></li>
             <li><p>Specifically designed to accommodate students with a variety of math backgrounds. It includes supplemental materials for students with minimal knowledge of math and clearly identifies sections with more advanced material so that readers can skip them if they so choose.</p></li>
