@@ -238,7 +238,7 @@
 	}
 
 	.container {
-    	max-width: 700px;
+    	max-width: 300px;
     	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
     	padding: 20px;
     	background-color: #fff;
@@ -395,10 +395,14 @@
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('a:not(.nav-link)').forEach(link => {
+<script>
+    document.querySelectorAll('a:not(.nav-link)').forEach(link => {
+        // Check if the link does not start with '#'
+        if (!link.getAttribute('href').startsWith('#')) {
             link.setAttribute('target', '_blank');
-        });
-    </script>
+        }
+    });
+</script>
+	
 </body>
 </html>
