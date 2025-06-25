@@ -210,6 +210,10 @@
             .nav span {
                 display: none;
             }
+
+            .container-row {
+                flex-direction: column;
+            }
         }
 
 	/* Hide the break on large screens */
@@ -255,44 +259,58 @@
     	background-color: #fff;
     	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	}
+
+	.container-row {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	.container-half {
+		flex: 1;
+		padding: 10px 25px;
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
 	    
-	.container h2, .container p, .container ul, .container li {
+	.container h2, .container p, .container ul, .container li, 
+	.container-half h2, .container-half p, .container-half ul, .container-half li {
     	margin-top: 0; /* Remove top margin */
     	margin-bottom: 0; /* Remove bottom margin */
     	padding: 0; /* No padding inside elements */
 	}
 
-	.container h2 {
+	.container h2, .container-half h2 {
     	color: #d32f2f;
     	border-bottom: 2px solid #d32f2f;
     	padding-bottom: 10px; /* Optional: add padding below the header if needed */
 	}
 
-	.container p, .container ul {
+	.container p, .container ul, .container-half p, .container-half ul {
     	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
     	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
 	}
 
-	.container ul {
+	.container ul, .container-half ul {
     	padding-left: 20px; /* Keep list indentation */
 	}
 
-	.container a {
+	.container a, .container-half a {
     	color: #d32f2f;
     	text-decoration: none;
 	}
 
-	.container a:hover {
+	.container a:hover, .container-half a:hover {
     	text-decoration: underline;
 	}
 
-	.container p {
+	.container p, .container-half p {
             margin-bottom: 0; /* Ensures no extra space after the paragraph */
         }
-        .container ul {
+        .container ul, .container-half ul {
             margin-top: 0; /* Ensures no extra space before the list */
         }
-        .container ul li {
+        .container ul li, .container-half ul li {
             margin-bottom: 0.5em; /* Adds space after each list item */
         }
 	    
@@ -309,11 +327,11 @@
     	   padding-left: 0;
 	}   
 
-	.container ul li {
+	.container ul li, .container-half ul li {
 	    margin-bottom: 0.4em; /* Removes extra space after each list item */
 	}
 
-	.container ul li ul {
+	.container ul li ul, .container-half ul li ul {
     	padding-top: 0; /* Reduces space before the start of a nested list */
 	}
 
@@ -358,30 +376,27 @@
     <div class="content">
     <div class="main-container">
 
-	<div class="container">
-   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
-   	<p style="margin-bottom: -7px;">All the student resources associated with DSS, including:</p>
-    		<ul>
-			<li>The code and real-world datasets used in the exercises in the book</li>
-        		<li>Links to interactive graphs to help students develop an intuition about some of the trickier concepts in statistics</li>
-        		<li>Other resources under development such as review exercises, videos, and additional readings</li>
-			</ul>
+	<div class="container-row">
+		<div class="container-half">
+	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
+	   	<p style="margin-bottom: -7px;">All the student resources associated with DSS, including:</p>
+	    		<ul>
+				<li><a href="#code-data">Code and Datasets Used in the Book</a></li>
+				<li><a href="#interactive">Interactive Graphs</a></li>
+				<li><a href="#exercises">Review Exercises</a></li>
+				<li><a href="#videos">Videos</a></li>
+				<li><a href="#readings">Additional Readings</a></li>
+				</ul>
+	    		</div>
 
-	<p style="color: #666; margin-bottom: -7px;"><em>Other Resources:</em></p>
-        	<ul>
-	    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
-	    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-        	</ul>
+		<div class="container-half">
+		<p style="color: #666; margin-bottom: -7px;"><em>Other Resources:</em></p>
+	        	<ul>
+		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
+	        	</ul>
+	        	</div>
     		</div>
-	
-	<h2 class="highlight">STUDENT RESOURCES BY TYPE</h2>
-  <ul>
-	<li><a href="#code-data">Code and Datasets Used in the Book</a></li>
-	<li><a href="#interactive">Interactive Graphs</a></li>
-	<li><a href="#exercises">Review Exercises</a></li>
-	<li><a href="#videos">Videos</a></li>
-	<li><a href="#readings">Additional Readings</a></li>
-	</ul>
 
 <p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>. Download, unzip, and save to your Desktop where the book's code expects to find it.</p>
 
