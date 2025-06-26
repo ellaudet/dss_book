@@ -421,8 +421,8 @@
         <div class="dropdown">
             <a href="#" class="nav-link active">STUDENT RESOURCES</a>
             <div class="dropdown-content">
-                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY CHAPTER</a>
-                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY TYPE</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY CHAPTER</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY TYPE</a>
             </div>
         </div>
     </div>
@@ -504,6 +504,7 @@
 </div>	
 
 <script>
+    // Only add target="_blank" to links that are NOT navigation links and don't start with '#'
     document.querySelectorAll('a:not(.nav-link)').forEach(link => {
         // Check if the link does not start with '#'
         if (!link.getAttribute('href').startsWith('#')) {
