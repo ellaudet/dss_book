@@ -437,8 +437,8 @@
         <div class="dropdown">
             <a href="#" class="nav-link active">STUDENT RESOURCES</a>
             <div class="dropdown-content">
-                <a href="#" class="active">BY CHAPTER</a>
-                <a href="https://ellaudet.github.io/dss_book/resources_by_type/">BY TYPE</a>
+                <a href="#" class="nav-link active">BY CHAPTER</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_type/" class="nav-link">BY TYPE</a>
             </div>
         </div>
     </div>
@@ -605,15 +605,15 @@
 	</ul></li>
 </ul>	
 
-</div></div>
-
 <p><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@suffolk.edu">ellaudet@gmail.com</a>. <em>(Website last updated: 11/02/2023)</em></p>
 	
 <pre>&nbsp;</pre>    
 
+</div></div>
 <script>
+    // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
     document.querySelectorAll('a:not(.nav-link)').forEach(link => {
-        // Check if the link does not start with '#'
+        // Check if the link does not start with '#' or 'mailto:'
         if (!link.getAttribute('href').startsWith('#') && !link.getAttribute('href').startsWith('mailto:')) {
             link.setAttribute('target', '_blank');
         }
