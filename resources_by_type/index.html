@@ -421,8 +421,8 @@
         <div class="dropdown">
             <a href="#" class="nav-link active">STUDENT RESOURCES</a>
             <div class="dropdown-content">
-                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY CHAPTER</a>
-                <a href="#" class="active">BY TYPE</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY CHAPTER</a>
+                <a href="#" class="nav-link active">BY TYPE</a>
             </div>
         </div>
     </div>
@@ -451,9 +451,11 @@
 		    	<li><a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a></li>
 		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-	        	</ul>
+	        	<li>Available also <a href="https://www.iwanami.co.jp/book/b656062.html">in Japanese</a>! 
+			</ul>
 	        	</div>
     		</div>
+	
 
 <h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
 
@@ -530,9 +532,13 @@
 	
 <p><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@suffolk.edu">ellaudet@gmail.com</a>. <em>(Website last updated: 11/02/2023)</em></p>
 
-<pre>&nbsp;</pre>    
+<pre>&nbsp;</pre>
+    
+</div>
+</div>	
 
 <script>
+    // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
     document.querySelectorAll('a:not(.nav-link)').forEach(link => {
         // Check if the link does not start with '#' or 'mailto:'
         if (!link.getAttribute('href').startsWith('#') && !link.getAttribute('href').startsWith('mailto:')) {
