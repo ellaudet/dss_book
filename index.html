@@ -79,6 +79,7 @@
             padding: 10px 20px;
             background-color: #fff;
             border-bottom: 1px solid #ddd;
+            position: relative;
         }
 
         .nav a {
@@ -99,6 +100,49 @@
 
         .nav span {
             color: #888;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #888;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .dropdown-content a.active {
+            color: #d32f2f;
+            background-color: #f9f9f9;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
         }
 
         .content {
@@ -345,15 +389,19 @@
     		<br class="conditional-break">
     		<a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a>
 	</p>
-        </div></div>	
+        </div>	
     </div>
 	
     <div class="nav">
         <a href="https://ellaudet.github.io/dss_book/" class="nav-link active">HOME</a>
         <span>|</span>
-        <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link inactive">RESOURCES BY CHAPTER</a>
-	<span>|</span>
-        <a href="https://ellaudet.github.io/dss_book/resources_by_type/" class="nav-link active">RESOURCES BY TYPE</a>
+        <div class="dropdown">
+            <a href="#" class="nav-link inactive">STUDENT RESOURCES</a>
+            <div class="dropdown-content">
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY CHAPTER</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_type/">BY TYPE</a>
+            </div>
+        </div>
     </div>
 
 <div class="content">
@@ -384,12 +432,12 @@
         <p class="quote">"Data science from zero to sixty—gently, expertly, quickly." <strong>— Gary King, Harvard University</strong></p>
         <p class="quote">"This book will transform the way we teach data science in the social sciences. Assuming zero background knowledge, it takes readers step-by-step through the most important concepts of data analysis and coding without sacrificing rigor." <strong>— Molly Roberts, UC San Diego</strong></p>
         <p class="quote">"I have been teaching statistics for twenty-five years and I have never seen a book this well done." <strong>— Vanessa Baird, University of Colorado Boulder</strong></p>
-        <p class="quote">"I particularly love its problem-solving approach. While most textbooks teach statistics without offering students a clear motivation, this one teaches statistics as a way to solve real problems with real datasets.” <strong>— Guillermo Solovey, University of Buenos Aires</strong></p>
+        <p class="quote">"I particularly love its problem-solving approach. While most textbooks teach statistics without offering students a clear motivation, this one teaches statistics as a way to solve real problems with real datasets." <strong>— Guillermo Solovey, University of Buenos Aires</strong></p>
         <p class="quote">"My favorite feature is that it puts causal inference first, before probability and statistical inference. I have found that this unconventional order is gentler and more engaging for complete beginners than the approach used in many other books. It also allows students with some prior knowledge of statistics to learn something new from the start." <strong>— Max Goplerud, University of Pittsburgh</strong></p>
         <p class="quote">"I especially like that it teaches point estimates and uncertainty separately. In the past, when I taught these concepts together, I found students were overwhelmed. Breaking them up makes the statistics easier to understand. It's a genius idea!" <strong>— Christopher Ojeda, UC Merced</strong></p>
-        <p class="quote">“Students liked the clear explanations and relevant real-world examples, and they even found coding in R fun!” <strong>— Alicia Cooperman, GW University</strong></p>
-        <p class="quote">“I don’t think I’ve seen a more accessible introduction to R and RStudio—cheat sheets included!” <strong>— Didier Ruedin, University of Neuchâtel</strong></p>
-        <p class="quote">"[T]he instructor resources that come with it are the best I've seen provided with a textbook and made adopting the book much easier.” <strong>— Mark Richardson, Georgetown University</strong></p>
+        <p class="quote">"Students liked the clear explanations and relevant real-world examples, and they even found coding in R fun!" <strong>— Alicia Cooperman, GW University</strong></p>
+        <p class="quote">"I don't think I've seen a more accessible introduction to R and RStudio—cheat sheets included!" <strong>— Didier Ruedin, University of Neuchâtel</strong></p>
+        <p class="quote">"[T]he instructor resources that come with it are the best I've seen provided with a textbook and made adopting the book much easier." <strong>— Mark Richardson, Georgetown University</strong></p>
 
         <h2 class="highlight"><a id="overview">BOOK OVERVIEW</a></h2>
         <p>Assuming no prior knowledge of statistics or coding and only minimal knowledge of math, <em>Data Analysis for Social Science</em> (DSS for short) teaches the fundamentals of survey research, predictive models, and causal inference, plus how to analyze real-world data with the free and popular statistical program R.</p>
@@ -407,7 +455,7 @@
         
         <h2 class="highlight"><a id="features">FEATURES</a></h2>
         <ul>
-            <li><p>Provides a step-by-step guide to analyzing real-world data using the powerful, open-source statistical program R, which is free for everyone to use. The datasets are provided on the <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">book’s official website</a> so that readers can learn how to analyze data by following along with the exercises in the book on their own computer.</p></li>
+            <li><p>Provides a step-by-step guide to analyzing real-world data using the powerful, open-source statistical program R, which is free for everyone to use. The datasets are provided on the <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">book's official website</a> so that readers can learn how to analyze data by following along with the exercises in the book on their own computer.</p></li>
             <li><p>Specifically designed to accommodate students with a variety of math backgrounds. It includes supplemental materials for students with minimal knowledge of math and clearly identifies sections with more advanced material so that readers can skip them if they so choose.</p></li>
             <li><p>Includes CHEATSHEETS of statistical concepts and R.</p></li>
             <li><p>Includes TIPS with supplemental materials, such as additional explanations, answers to common questions, notes on best practices, and recommendations.</p></li>
@@ -419,7 +467,6 @@
 
         <p>We sincerely hope our book is helpful to you and your students! — Elena and Kosuke</p>
     
-</div>
 </div>
 </div>	
 
