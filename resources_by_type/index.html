@@ -22,7 +22,7 @@
 
         .header img {
             border-radius: 5px;
-            width: 140px;
+            width: 110px;
             height: auto;
             margin-right: 10px;
         }
@@ -168,7 +168,7 @@
 	}    
 	    
 	.book-image {
-		    flex: 0 0 200px; /* Adjust width as necessary */
+		    flex: 0 0 150px; /* Reduced from 200px to 150px */
 		    margin-top: 0; /* Ensure no top margin */
 	    }
 	    
@@ -407,11 +407,7 @@
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
             <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
 	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
-
-	<div class="desktop-only">
-	<h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
-	</div>	
-
+	    <h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
         </div>
     </div>
 	
@@ -419,7 +415,7 @@
         <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
         <span>|</span>
         <div class="dropdown">
-            <a href="#" class="nav-link active">STUDENT RESOURCES</a>
+            <a href="#" class="nav-link active">RESOURCES BY TYPE</a>
             <div class="dropdown-content">
                 <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY CHAPTER</a>
                 <a href="#" class="nav-link active">BY TYPE</a>
@@ -434,11 +430,11 @@
 	<div class="container-row">
 		<div class="container-half">
 	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
-		<p style="margin-bottom: -7px;">Student resources organized by type:</p>
+		<p style="margin-bottom: -7px;">Student resources organized by type, including the code and datasets used in the book, interactive graphs, videos, self-graded review exercises, and additional readings.</p>
 	    		<ul>
 				<li><a href="#code-data">Code and Datasets</a></li>
+				<li><a href="#exercises">Self-Graded Review Exercises</a></li>
 				<li><a href="#interactive">Interactive Graphs</a></li>
-				<li><a href="#exercises">Review Exercises</a></li>
 				<li><a href="#videos">Videos</a></li>
 				<li><a href="#readings">Additional Readings</a></li>
 				</ul>
@@ -449,16 +445,15 @@
 	        	<ul>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
 		    	<li><a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a></li>
-		    	<li><a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a></li>
-		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
+		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-	        	<li>Available also <a href="https://www.iwanami.co.jp/book/b656062.html">in Japanese</a>! 
-			</ul>
+		    	<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
+	        	</ul>
 	        	</div>
     		</div>
 	
 
-<h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
+<h2 class="highlight"><a id="code-data">CODE AND DATASETS</a></h2>
 
 <p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>.</p>
 
@@ -485,8 +480,16 @@
 	</ul></li>
 </ul>
 
+<h2 class="highlight"><a id="exercises">SELF-GRADED REVIEW EXERCISES</a></h2>
+<p>To access them <span style="color: #888;">(run code in linked R script in RStudio)</span>:</p>
+
+<ul>
+<li><a href="https://bit.ly/dss_review1" target="_blank">Chapter 1</a></li>
+<li><a href="https://bit.ly/dss_review2" target="_blank">Chapter 2</a></li>
+</ul>
+	    
 <h2 class="highlight"><a id="interactive">INTERACTIVE GRAPHS</a></h2>
-<p>To help students develop an intuition about some of the trickier concepts in statistics. (Note: If any link below does not work, click the R script link and run the code in RStudio.)</p>
+<p>To help students develop an intuition about some of the trickier concepts in statistics <span style="color: #888;">(if main link does not work, run code in linked R script)</span>:</p>
 
 <ul>
 <li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Assignment Creates Comparable Groups with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 2)</span></li>
@@ -508,14 +511,6 @@
 <li>Hypothesis Testing (coming soon) <span class="chapter-tag">(Chapter 7)</span></li>
 </ul>
 
-<h2 class="highlight"><a id="exercises">REVIEW EXERCISES</a></h2>
-<p>To access them, run the code in the R script links below in RStudio.</p>
-
-<ul>
-<li><a href="https://bit.ly/dss_review1" target="_blank">Chapter 1</a></li>
-<li><a href="https://bit.ly/dss_review2" target="_blank">Chapter 2</a></li>
-</ul>
-
 <h2 class="highlight"><a id="videos">VIDEOS</a></h2>
 
 <ul>
@@ -529,11 +524,12 @@
 <li><a href="https://bit.ly/dss_in_the_cloud" target="_blank">How to Use Posit Cloud for Data Analysis</a> <span class="chapter-tag">(Chapter 1)</span></li>
 </ul>
 
-<p><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@suffolk.edu">ellaudet@gmail.com</a>. <em>(Website last updated: 11/02/2023)</em></p>
+<hr style="margin: 1em 0 0.5em 0; border: none; border-top: 1px solid #ddd;">
+<p style="color: #888; font-size: 0.9em;"><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@gmail.com" style="color: #888;">ellaudet@gmail.com</a>. <em>(Website last updated: 06/26/2025)</em></p>
 
-<pre>&nbsp;</pre>
-    
-</div></div></div></div>
+</div></div>
+	
+<pre>&nbsp;</pre>    
 
 <script>
     // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
