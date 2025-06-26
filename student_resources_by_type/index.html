@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS Student Resources By Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #444;
+        }
 
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header img {
+            border-radius: 5px;
+            width: 110px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+	.header-content h1, .header-content h2, .header-content h3, .header-content p {
+            margin: 0;
+            padding: 0;
+        }
+	    
+        .header-content h1 {
+            font-size: 1.1em;
+            font-weight: normal;
+            text-transform: uppercase;
+	    color: #d32f2f;
+        }
+
+        .header-content h2:first-of-type {
+            margin-top: 3px;
+	    font-weight: normal;
+            font-size: 1em;
+        }
+
+        .header-content h2:nth-of-type(2) {
+            margin-top: -4px;
+            font-size: 0.9em;
+        }
+
+        .header-content h2 {
+            font-size: 1em;
+            font-weight: normal;
+            margin: 5px 0;
+            color: #666;
+        }
+
+	.header-content h3 {
+            font-size: 0.8em;
+            font-weight: normal;
+            margin: 0;
+	    color: #444;
+	    margin-top: 3px;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: normal;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .nav a.active {
+            color: #d32f2f;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .nav span {
+            color: #888;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #888;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .dropdown-content a.active {
+            color: #d32f2f;
+            background-color: #f9f9f9;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .content img.dss-photo {
+            float: right;
+            margin: 10px 0 10px 20px;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+	.top-content {
+ 	   display: flex;
+    	   gap: 40px;
+	   margin-bottom: 40px;
+	   align-items: flex-start; /* This ensures all items start from the top */
+	   padding: 0; /* Remove any padding that might affect alignment */
+	}    
+	    
+	.book-image {
+		    flex: 0 0 150px; /* Reduced from 200px to 150px */
+		    margin-top: 0; /* Ensure no top margin */
+	    }
+	    
+	.book-image img {
+    		width: 100%;
+    		height: auto;
+    		border-radius: 5px;
+    		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    		display: block; /* Ensures no extra space at bottom of image */
+	}
+
+        .intro-content {
+            flex: 1;
+        }
+
+	.intro-content h2, .intro-content h3 {
+		margin-top: 0; /* Removes the top margin pushing the text down */
+	}    
+
+        p {
+            margin: 1em 0;
+        }
+
+        a {
+            color: #d32f2f;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            color: #d32f2f;
+            font-size: 1.1em;
+            margin-top: 1.5em;
+            margin-bottom: 0.2em;
+            font-weight: 500;
+        }
+
+        /* Remove top margin from paragraphs that immediately follow chapter headings */
+        .highlight + p {
+            margin-top: 0;
+        }
+
+        /* Remove top margin from lists that immediately follow paragraphs */
+        p + ul {
+            margin-top: 0;
+        }
+
+        /* Remove top margin from lists that immediately follow headings */
+        .highlight + ul {
+            margin-top: 0;
+        }
+
+        /* Add more space after headings that don't have paragraphs */
+        #videos, #readings {
+            margin-bottom: 0.5em;
+        }
+        
+	    h3 {
+            color: #666;
+	    font-size: 1em;
+            margin-top: 0;
+            margin-bottom: 0.2em;
+	    font-weight: 500;	    
+        }
+
+        .chapter-tag {
+            color: #888;
+            font-size: 1em;
+            font-weight: normal;
+        }
+
+	    .author {
+            margin-bottom: 1.5em;
+	    font-size: 1em; /* Set the font size to match your standard text size */
+    	    font-weight: normal; /* Remove bold styling */
+        }
+
+        .quote {
+            margin-left: 0px;
+            margin-bottom: 1em;
+        }
+	
+	@media (max-width: 768px) {
+            .top-content {
+                flex-direction: column;
+            }
+
+            .book-image {
+                flex: 0 0 auto;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .nav span {
+                display: none;
+            }
+
+            .container-row {
+                flex-direction: column;
+            }
+        }
+
+	/* Hide the break on large screens */
+    	.conditional-break {
+        	display: none;
+    	}
+
+    	/* Show the break on screens smaller than 500px */
+    	@media (max-width: 500px) {
+        .conditional-break {
+            display: block;
+        	}
+    	}
+
+	/* Hide the break on small screens */
+    	.break-large-screen {
+        display: none;
+    	}
+
+    	/* Show the break on screens wider than 400px */
+    	@media (min-width: 850px) {
+        .break-large-screen {
+            display: inline;
+        	}
+    	}
+	    
+	/* Hide text on screens smaller than 768px (common breakpoint for tablets and below) */
+	.desktop-only {
+    		display: none;
+		}
+
+	/* Show text on screens larger than 768px (common breakpoint for desktops) */
+	@media (min-width: 768px) {
+    		.desktop-only {
+        	display: block;
+    	}
+	}
+
+	.container {
+    	max-width: 700px;
+    	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
+    	padding: 10px 25px;
+    	background-color: #fff;
+    	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
+
+	.container-row {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	.container-half {
+		flex: 1;
+		padding: 10px 25px;
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
+	    
+	.container h2, .container p, .container ul, .container li, 
+	.container-half h2, .container-half p, .container-half ul, .container-half li {
+    	margin-top: 0; /* Remove top margin */
+    	margin-bottom: 0; /* Remove bottom margin */
+    	padding: 0; /* No padding inside elements */
+	}
+
+	.container h2, .container-half h2 {
+    	color: #d32f2f;
+    	border-bottom: 2px solid #d32f2f;
+    	padding-bottom: 10px; /* Optional: add padding below the header if needed */
+	}
+
+	.container p, .container ul, .container-half p, .container-half ul {
+    	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
+    	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
+	}
+
+	.container ul, .container-half ul {
+    	padding-left: 20px; /* Keep list indentation */
+	}
+
+	.container a, .container-half a {
+    	color: #d32f2f;
+    	text-decoration: none;
+	}
+
+	.container a:hover, .container-half a:hover {
+    	text-decoration: underline;
+	}
+
+	.container p, .container-half p {
+            margin-bottom: 0; /* Ensures no extra space after the paragraph */
+        }
+        .container ul, .container-half ul {
+            margin-top: 0; /* Ensures no extra space before the list */
+        }
+        .container ul li, .container-half ul li {
+            margin-bottom: 0.5em; /* Adds space after each list item */
+        }
+	    
+	ul {
+    	margin-bottom: 0.5em; /* Adds a half-line space after the entire list */
+	}
+
+	ul li {
+    	margin-bottom: 0.5em; /* Adds a half-line space after each list item */
+	}
+
+	ul > li > ul {
+ 	   margin-left: 20px;
+    	   padding-left: 0;
+	}   
+
+	.container ul li, .container-half ul li {
+	    margin-bottom: 0.4em; /* Removes extra space after each list item */
+	}
+
+	.container ul li ul, .container-half ul li ul {
+    	padding-top: 0; /* Reduces space before the start of a nested list */
+	}
+
+	.main-container {
+            max-width: 900px; /* Sets the maximum width for the content */
+            }    
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <img src="../images/DSS.png" alt="DSS">
+        <div class="header-content">
+            <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
+            <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
+	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
+	    <h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
+        </div>
+    </div>
+	
+    <div class="nav">
+        <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
+        <span>|</span>
+        <div class="dropdown">
+            <a href="#" class="nav-link active">STUDENT RESOURCES BY TYPE</a>
+            <div class="dropdown-content">
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY CHAPTER</a>
+                <a href="#" class="nav-link active">BY TYPE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->	
+    <div class="content">
+    <div class="main-container">
+
+	<div class="container-row">
+		<div class="container-half">
+	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
+		<p style="margin-bottom: -7px;">Student resources organized by type:</p>
+	    		<ul>
+				<li><a href="#code-data">Code and Datasets</a></li>
+				<li><a href="#exercises">Self-Graded Review Exercises</a></li>
+				<li><a href="#interactive">Interactive Graphs</a></li>
+				<li><a href="#videos">Videos</a></li>
+				<li><a href="#readings">Additional Readings</a></li>
+				</ul>
+	    		</div>
+
+		<div class="container-half">
+		<p style="color: #666; margin-bottom: -7px;"><em>Other Resources:</em></p>
+	        	<ul>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
+		    	<li><a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a></li>
+		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
+		    	<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
+	        	</ul>
+	        	</div>
+    		</div>
+	
+
+<h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
+
+<p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>.</p>
+
+<ul>
+<li><p style="margin-bottom: 0.5em;">R Scripts:</p>
+	<ul>
+	<li><a href="https://www.dropbox.com/scl/fi/k2vf6orbe131hmw2v8y0a/Introduction.R?rlkey=etkjw0gt9zluphcj52irm7zz0&amp;dl=1" target="_blank">Introduction.R</a> <span class="chapter-tag">(Chapter 1)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/sar83u0jw59ayu0in5xpp/Experimental.R?rlkey=6pl0o2a68jb6etqvrf9p0hg45&amp;dl=1" target="_blank">Experimental.R</a> <span class="chapter-tag">(Chapter 2)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/mx505ztfvdsli8o00p2v3/Population.R?rlkey=ghqq5sthfadtnwqdj38qc1b7d&amp;dl=1" target="_blank">Population.R</a> <span class="chapter-tag">(Chapter 3)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/l110zxm6ggkolvnphyj7i/Prediction.R?rlkey=l7uffj1snbgdy4aosf7s2rc26&amp;dl=1" target="_blank">Prediction.R</a> <span class="chapter-tag">(Chapter 4)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/mxyyz06v0vaen0lnj7ozt/Observational.R?rlkey=qwjo70pn0mjmbkmghlxa4rpal&amp;dl=1" target="_blank">Observational.R</a> <span class="chapter-tag">(Chapter 5)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/u1yelo1pqzsb7k5kdisak/Probability.R?rlkey=9g3fkcp87cbnhg67id190m41d&amp;dl=1" target="_blank">Probability.R</a> <span class="chapter-tag">(Chapter 6)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/3qo3ae4wzr3gtz4m44e2f/Uncertainty.R?rlkey=6b471hnekh0l2d0wouifkpt99&amp;dl=1" target="_blank">Uncertainty.R</a> <span class="chapter-tag">(Chapter 7)</span></li>
+	</ul></li>
+
+<li><p style="margin-bottom: 0.5em;">Datasets:</p>
+	<ul>
+	<li><a href="https://www.dropbox.com/scl/fi/a21qlxby7vy3t0v7tn4mz/STAR.csv?rlkey=dawpbczom5jl3phlgaf24uya3&amp;dl=1" target="_blank">STAR.csv</a> <span class="chapter-tag">(Project STAR education data - Chapters 1, 2, 7)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/c6xe3ogsl824xs47gtrt5/BES.csv?rlkey=a2b4um7gzzh8ayhwveebugwjn&amp;dl=1" target="_blank">BES.csv</a> <span class="chapter-tag">(Brexit survey data - Chapters 3, 7)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/hndgl2mfc8d2hcqp9y7wj/UK_districts.csv?rlkey=wvznr5xsir30whayw87zjytwx&amp;dl=1" target="_blank">UK_districts.csv</a> <span class="chapter-tag">(UK districts data - Chapter 3)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/2gb7jgh2ljkcpf21tva4n/countries.csv?rlkey=nqoyi0gvanqvl8lnlp36nsnrq&amp;dl=1" target="_blank">countries.csv</a> <span class="chapter-tag">(GDP and satellite data - Chapters 4, 7)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/22ubt1iuoejjlnxytrv1y/UA_survey.csv?rlkey=orfrcg6xwiy53yp1fb4gg53ss&amp;dl=1" target="_blank">UA_survey.csv</a> <span class="chapter-tag">(Ukraine survey data - Chapters 5, 7)</span></li>
+	<li><a href="https://www.dropbox.com/scl/fi/hndgl2mfc8d2hcqp9y7wj/UK_districts.csv?rlkey=wvznr5xsir30whayw87zjytwx&amp;dl=1" target="_blank">UA_precincts.csv</a> <span class="chapter-tag">(Ukraine electoral data - Chapter 5)</span></li>
+	</ul></li>
+</ul>
+
+<h2 class="highlight"><a id="exercises">SELF-GRADED REVIEW EXERCISES</a></h2>
+<p>To enable students to check their understanding of the material on their own <span style="color: #888;">(run code in linked R script in RStudio)</span>:</p>
+
+<ul>
+<li><a href="https://bit.ly/dss_review1" target="_blank">Chapter 1. Introduction</a></li>
+<li><a href="https://bit.ly/dss_review2" target="_blank">Chapter 2. Estimating Causal Effects with Randomized Experiments</a></li>
+</ul>
+	    
+<h2 class="highlight"><a id="interactive">INTERACTIVE GRAPHS</a></h2>
+<p>To help students develop an intuition about some of the trickier concepts in statistics <span style="color: #888;">(if main link does not work, run code in linked R script)</span>:</p>
+
+<ul>
+<li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Assignment Creates Comparable Groups with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 2)</span></li>
+
+<li><a href="https://bit.ly/dss_shiny_random_sampling" target="_blank">Random Sampling Creates Representative Samples with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_sampling" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
+
+<li><a href="https://bit.ly/dss_shiny_mean_sd" target="_blank">How Mean and Standard Deviation Affect Distributions</a> (<a href="https://bit.ly/interactive_graph_mean_sd" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
+
+<li><a href="https://bit.ly/dss_correlation" target="_blank">What the Correlation Coefficient Captures</a> (<a href="https://bit.ly/interactive_graph_correlation" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
+
+<li><a href="https://bit.ly/dss_line" target="_blank">How Intercept and Slope Define a Line</a> (<a href="https://bit.ly/interactive_graph_linear_model" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 4)</span></li>
+
+<li><a href="https://bit.ly/dss_least" target="_blank">The Least Squares Method</a> (<a href="https://bit.ly/interactive_graph_least_squares" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 4)</span></li>
+
+<li>The Law of Large Numbers (coming soon) <span class="chapter-tag">(Chapter 6)</span></li>
+
+<li>The Central Limit Theorem (coming soon) <span class="chapter-tag">(Chapter 7)</span></li>
+
+<li>Hypothesis Testing (coming soon) <span class="chapter-tag">(Chapter 7)</span></li>
+</ul>
+
+<h2 class="highlight"><a id="videos">VIDEOS</a></h2>
+
+<ul>
+<li><a href="/ellaudet/bit.ly/dss_experiment" target="_blank">How to Run a Randomized Experiment</a> <span class="chapter-tag">(Chapter 2)</span></li>
+<li><a href="https://bit.ly/dss_fitted_line" target="_blank">How to Fit a Line to Predict Y Based on X</a> <span class="chapter-tag">(Chapter 4)</span></li>
+</ul>
+
+<h2 class="highlight"><a id="readings">ADDITIONAL READINGS</a></h2>
+
+<ul>
+<li><a href="https://bit.ly/dss_in_the_cloud" target="_blank">How to Use Posit Cloud for Data Analysis</a> <span class="chapter-tag">(Chapter 1)</span></li>
+</ul>
+
+<hr style="margin: 1em 0 0.5em 0; border: none; border-top: 1px solid #ddd;">
+<p style="color: #888; font-size: 0.9em;"><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@gmail.com" style="color: #888;">ellaudet@gmail.com</a>. <em>(Website last updated: 06/26/2025)</em></p>
+
+</div></div>
+	
+<pre>&nbsp;</pre>    
+
+<script>
+    // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
+    document.querySelectorAll('a:not(.nav-link)').forEach(link => {
+        // Check if the link does not start with '#' or 'mailto:'
+        if (!link.getAttribute('href').startsWith('#') && !link.getAttribute('href').startsWith('mailto:')) {
+            link.setAttribute('target', '_blank');
+        }
+    });
+</script>
+	
+</body>
+</html>
