@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSS Student Resources By Type</title>
+    <title>Data Analysis for Social Science</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
 
         .header img {
             border-radius: 5px;
-            width: 140px;
+            width: 110px;
             height: auto;
             margin-right: 10px;
         }
@@ -168,7 +168,7 @@
 	}    
 	    
 	.book-image {
-		    flex: 0 0 200px; /* Adjust width as necessary */
+		    flex: 0 0 150px; /* Reduced from 200px to 150px */
 		    margin-top: 0; /* Ensure no top margin */
 	    }
 	    
@@ -407,22 +407,18 @@
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
             <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
 	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
-
-	<div class="desktop-only">
-	<h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
-	</div>	
-
+	    <h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
         </div>
     </div>
 	
     <div class="nav">
-        <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
+        <a href="https://ellaudet.github.io/dss_book/" class="nav-link active">HOME</a>
         <span>|</span>
         <div class="dropdown">
-            <a href="#" class="nav-link active">STUDENT RESOURCES</a>
+            <a href="#" class="nav-link inactive">STUDENT RESOURCES</a>
             <div class="dropdown-content">
                 <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY CHAPTER</a>
-                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link">BY TYPE</a>
+                <a href="https://ellaudet.github.io/dss_book/resources_by_type/" class="nav-link">BY TYPE</a>
             </div>
         </div>
     </div>
@@ -448,11 +444,10 @@
 	        	<ul>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
 		    	<li><a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a></li>
-		    	<li><a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a></li>
-		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
+		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-	        	<li>Available also <a href="https://www.iwanami.co.jp/book/b656062.html">in Japanese</a>! 
-			</ul>
+		    	<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
+	        	</ul>
 	        	</div>
     		</div>
 	
@@ -499,15 +494,18 @@
         </ul>
 
         <p>We sincerely hope our book is helpful to you and your students! — Elena and Kosuke</p>
+
+<hr style="margin: 1em 0 0.5em 0; border: none; border-top: 1px solid #ddd;">
+<p style="color: #888; font-size: 0.9em;"><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@gmail.com" style="color: #888;">ellaudet@gmail.com</a>. <em>(Website last updated: 06/26/2025)</em></p>
     
 </div>
 </div>	
 
 <script>
-    // Only add target="_blank" to links that are NOT navigation links and don't start with '#'
+    // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
     document.querySelectorAll('a:not(.nav-link)').forEach(link => {
-        // Check if the link does not start with '#'
-        if (!link.getAttribute('href').startsWith('#')) {
+        // Check if the link does not start with '#' or 'mailto:'
+        if (!link.getAttribute('href').startsWith('#') && !link.getAttribute('href').startsWith('mailto:')) {
             link.setAttribute('target', '_blank');
         }
     });
