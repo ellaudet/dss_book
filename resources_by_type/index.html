@@ -214,6 +214,21 @@
         .highlight + p {
             margin-top: 0;
         }
+
+        /* Remove top margin from lists that immediately follow paragraphs */
+        p + ul {
+            margin-top: 0;
+        }
+
+        /* Remove top margin from lists that immediately follow headings */
+        .highlight + ul {
+            margin-top: 0;
+        }
+
+        /* Add more space after headings that don't have paragraphs */
+        #videos, #readings {
+            margin-bottom: 0.5em;
+        }
         
 	    h3 {
             color: #666;
@@ -225,7 +240,7 @@
 
         .chapter-tag {
             color: #888;
-            font-size: 0.9em;
+            font-size: 1em;
             font-weight: normal;
         }
 
@@ -447,7 +462,7 @@
 
 <h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
 
-<p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>. Download, unzip, and save to your Desktop where the book's code expects to find it.</p>
+<p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>.</p>
 
 <ul>
 <li><p style="margin-bottom: 0.5em;">R Scripts:</p>
@@ -473,27 +488,20 @@
 </ul>
 
 <h2 class="highlight"><a id="interactive">INTERACTIVE GRAPHS</a></h2>
-
-<p>To help students develop an intuition about some of the trickier concepts in statistics.</p>
+<p>To help students develop an intuition about some of the trickier concepts in statistics. (Note: If any link below does not work, click the R script link and run the code in RStudio.)</p>
 
 <ul>
-<li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Treatment Assignment Creates Comparable Groups with Large Samples</a> <span class="chapter-tag">(Chapter 2)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Treatment Assignment Creates Comparable Groups with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 2)</span></li>
 
-<li><a href="https://bit.ly/dss_shiny_random_sampling" target="_blank">Random Sampling Creates Representative Samples with Large Samples</a> <span class="chapter-tag">(Chapter 3)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_random_sampling" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_shiny_random_sampling" target="_blank">Random Sampling Creates Representative Samples with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_sampling" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
 
-<li><a href="https://bit.ly/dss_shiny_mean_sd" target="_blank">How Mean and Standard Deviation Affect Distributions</a> <span class="chapter-tag">(Chapter 3)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_mean_sd" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_shiny_mean_sd" target="_blank">How Mean and Standard Deviation Affect Distributions</a> (<a href="https://bit.ly/interactive_graph_mean_sd" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
 
-<li><a href="https://bit.ly/dss_correlation" target="_blank">What the Correlation Coefficient Captures</a> <span class="chapter-tag">(Chapter 3)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_correlation" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_correlation" target="_blank">What the Correlation Coefficient Captures</a> (<a href="https://bit.ly/interactive_graph_correlation" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
 
-<li><a href="https://bit.ly/dss_line" target="_blank">How Intercept and Slope Define a Line</a> <span class="chapter-tag">(Chapter 4)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_linear_model" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_line" target="_blank">How Intercept and Slope Define a Line</a> (<a href="https://bit.ly/interactive_graph_linear_model" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 4)</span></li>
 
-<li><a href="https://bit.ly/dss_least" target="_blank">The Least Squares Method</a> <span class="chapter-tag">(Chapter 4)</span><br>
-(If link does not work, run the code in <a href="https://bit.ly/interactive_graph_least_squares" target="_blank">this R script</a> in RStudio)</li>
+<li><a href="https://bit.ly/dss_least" target="_blank">The Least Squares Method</a> (<a href="https://bit.ly/interactive_graph_least_squares" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 4)</span></li>
 
 <li>The Law of Large Numbers (coming soon) <span class="chapter-tag">(Chapter 6)</span></li>
 
@@ -503,9 +511,11 @@
 </ul>
 
 <h2 class="highlight"><a id="exercises">REVIEW EXERCISES</a></h2>
+<p>To access them, run the code in the R script links below in RStudio.</p>
+
 <ul>
-<li>Chapter 1: Run the code in <a href="https://bit.ly/dss_review1" target="_blank">this R script</a> in RStudio</li>
-<li>Chapter 2: Run the code in <a href="https://bit.ly/dss_review2" target="_blank">this R script</a> in RStudio</li>
+<li><a href="https://bit.ly/dss_review1" target="_blank">Chapter 1</a></li>
+<li><a href="https://bit.ly/dss_review2" target="_blank">Chapter 2</a></li>
 </ul>
 
 <h2 class="highlight"><a id="videos">VIDEOS</a></h2>
