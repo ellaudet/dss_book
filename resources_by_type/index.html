@@ -79,6 +79,7 @@
             padding: 10px 20px;
             background-color: #fff;
             border-bottom: 1px solid #ddd;
+            position: relative;
         }
 
         .nav a {
@@ -99,6 +100,49 @@
 
         .nav span {
             color: #888;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #888;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .dropdown-content a.active {
+            color: #d32f2f;
+            background-color: #f9f9f9;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
         }
 
         .content {
@@ -367,9 +411,13 @@
     <div class="nav">
         <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
         <span>|</span>
-        <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/" class="nav-link inactive">RESOURCES BY CHAPTER</a>
-        <span>|</span>
-        <a href="#" class="nav-link active">RESOURCES BY TYPE</a>
+        <div class="dropdown">
+            <a href="#" class="nav-link active">STUDENT RESOURCES</a>
+            <div class="dropdown-content">
+                <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY CHAPTER</a>
+                <a href="#" class="active">BY TYPE</a>
+            </div>
+        </div>
     </div>
 
     <!-- Content Section -->	
@@ -379,7 +427,6 @@
 	<div class="container-row">
 		<div class="container-half">
 	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
-	   	<p style="margin-bottom: -7px;">All the student resources associated with DSS, including:</p>
 	    		<ul>
 				<li><a href="#code-data">Code and Datasets Used in the Book</a></li>
 				<li><a href="#interactive">Interactive Graphs</a></li>
@@ -398,11 +445,9 @@
 	        	</div>
     		</div>
 
-<p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>. Download, unzip, and save to your Desktop where the book's code expects to find it.</p>
-
-<p><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@suffolk.edu">ellaudet@gmail.com</a>. <em>(Website last updated: 11/02/2023)</em></p>
-
 <h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
+
+<p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>. Download, unzip, and save to your Desktop where the book's code expects to find it.</p>
 
 <ul>
 <li><p style="margin-bottom: 0.5em;">R Scripts:</p>
@@ -428,6 +473,8 @@
 </ul>
 
 <h2 class="highlight"><a id="interactive">INTERACTIVE GRAPHS</a></h2>
+
+<p>To help students develop an intuition about some of the trickier concepts in statistics.</p>
 
 <ul>
 <li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Treatment Assignment Creates Comparable Groups with Large Samples</a> <span class="chapter-tag">(Chapter 2)</span><br>
@@ -476,6 +523,8 @@
 
 </div></div>
 	
+<p><em>Found an error?</em> Please email me at <a href="mailto:ellaudet@suffolk.edu">ellaudet@gmail.com</a>. <em>(Website last updated: 11/02/2023)</em></p>
+
 <pre>&nbsp;</pre>    
 
 <script>
