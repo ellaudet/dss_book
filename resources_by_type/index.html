@@ -189,7 +189,6 @@
 	}    
 
         p {
-            text-align: justify;
             margin: 1em 0;
         }
 
@@ -411,13 +410,6 @@
 
 	<div class="desktop-only">
 	<h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
-		<p style="font-size: 0.8em; margin-top: 5px;">
-    		<a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a> |
-    		<br class="conditional-break">
-		<a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a> |
-    		<br class="conditional-break">
-    		<a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a>
-	</p>
 	</div>	
 
         </div>
@@ -454,6 +446,9 @@
 		<div class="container-half">
 		<p style="color: #666; margin-bottom: -7px;"><em>Other Resources:</em></p>
 	        	<ul>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
+		    	<li><a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a></li>
+		    	<li><a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a></li>
 		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
 		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
 	        	</ul>
@@ -491,7 +486,7 @@
 <p>To help students develop an intuition about some of the trickier concepts in statistics. (Note: If any link below does not work, click the R script link and run the code in RStudio.)</p>
 
 <ul>
-<li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Assignment Creates Comparable Groups with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 2)</span></li>
+<li><a href="https://bit.ly/dss_shiny_random_assignment" target="_blank">Random Treatment Assignment Creates Comparable Groups with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_treatment" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 2)</span></li>
 
 <li><a href="https://bit.ly/dss_shiny_random_sampling" target="_blank">Random Sampling Creates Representative Samples with Large Samples</a> (<a href="https://bit.ly/interactive_graph_random_sampling" target="_blank">R script</a>) <span class="chapter-tag">(Chapter 3)</span></li>
 
@@ -539,7 +534,7 @@
 
 <script>
     document.querySelectorAll('a:not(.nav-link)').forEach(link => {
-        // Check if the link does not start with '#'
+        // Check if the link does not start with '#' or 'mailto:'
         if (!link.getAttribute('href').startsWith('#') && !link.getAttribute('href').startsWith('mailto:')) {
             link.setAttribute('target', '_blank');
         }
