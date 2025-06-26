@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analysis for Social Science</title>
+    <title>DSS Student Resources By Type</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -189,7 +189,6 @@
 	}    
 
         p {
-            text-align: justify;
             margin: 1em 0;
         }
 
@@ -209,6 +208,26 @@
             margin-bottom: 0.2em;
             font-weight: 500;
         }
+
+        /* Remove top margin from paragraphs that immediately follow chapter headings */
+        .highlight + p {
+            margin-top: 0;
+        }
+
+        /* Remove top margin from lists that immediately follow paragraphs */
+        p + ul {
+            margin-top: 0;
+        }
+
+        /* Remove top margin from lists that immediately follow headings */
+        .highlight + ul {
+            margin-top: 0;
+        }
+
+        /* Add more space after headings that don't have paragraphs */
+        #videos, #readings {
+            margin-bottom: 0.5em;
+        }
         
 	    h3 {
             color: #666;
@@ -216,6 +235,12 @@
             margin-top: 0;
             margin-bottom: 0.2em;
 	    font-weight: 500;	    
+        }
+
+        .chapter-tag {
+            color: #888;
+            font-size: 1em;
+            font-weight: normal;
         }
 
 	    .author {
@@ -242,6 +267,10 @@
 
             .nav span {
                 display: none;
+            }
+
+            .container-row {
+                flex-direction: column;
             }
         }
 
@@ -278,54 +307,68 @@
 	@media (min-width: 768px) {
     		.desktop-only {
         	display: block;
-    		}
+    	}
 	}
 
 	.container {
-    	max-width: 600px;
+    	max-width: 700px;
     	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
     	padding: 10px 25px;
     	background-color: #fff;
     	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	}
+
+	.container-row {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	.container-half {
+		flex: 1;
+		padding: 10px 25px;
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
 	    
-	.container h2, .container p, .container ul, .container li {
+	.container h2, .container p, .container ul, .container li, 
+	.container-half h2, .container-half p, .container-half ul, .container-half li {
     	margin-top: 0; /* Remove top margin */
     	margin-bottom: 0; /* Remove bottom margin */
     	padding: 0; /* No padding inside elements */
 	}
 
-	.container h2 {
+	.container h2, .container-half h2 {
     	color: #d32f2f;
     	border-bottom: 2px solid #d32f2f;
     	padding-bottom: 10px; /* Optional: add padding below the header if needed */
 	}
 
-	.container p, .container ul {
+	.container p, .container ul, .container-half p, .container-half ul {
     	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
     	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
 	}
 
-	.container ul {
+	.container ul, .container-half ul {
     	padding-left: 20px; /* Keep list indentation */
 	}
 
-	.container a {
+	.container a, .container-half a {
     	color: #d32f2f;
     	text-decoration: none;
 	}
 
-	.container a:hover {
+	.container a:hover, .container-half a:hover {
     	text-decoration: underline;
 	}
 
-	.container p {
+	.container p, .container-half p {
             margin-bottom: 0; /* Ensures no extra space after the paragraph */
         }
-        .container ul {
+        .container ul, .container-half ul {
             margin-top: 0; /* Ensures no extra space before the list */
         }
-        .container ul li {
+        .container ul li, .container-half ul li {
             margin-bottom: 0.5em; /* Adds space after each list item */
         }
 	    
@@ -342,33 +385,18 @@
     	   padding-left: 0;
 	}   
 
-	.container ul li {
+	.container ul li, .container-half ul li {
 	    margin-bottom: 0.4em; /* Removes extra space after each list item */
 	}
 
-	.container ul li ul {
+	.container ul li ul, .container-half ul li ul {
     	padding-top: 0; /* Reduces space before the start of a nested list */
 	}
 
 	.main-container {
             max-width: 900px; /* Sets the maximum width for the content */
-            }
+            }    
 
-	.content img.dss-both-photos {
-            float: right;
-            margin-left: 20px;
-	    margin-top: 84px;
-            width: 300px;
-            height: auto;
-            border-radius: 5px;
-        }
-	    
-	@media (max-width: 700px) {
-        .dss-both-photos {
-        display: none;
-            }
-        }
-	    
     </style>
 </head>
 <body>
@@ -377,33 +405,57 @@
         <img src="../images/DSS.png" alt="DSS">
         <div class="header-content">
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
-            <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>
-            <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
+            <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
+	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
 
 	<div class="desktop-only">
-	    <h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
-		<p style="font-size: 0.8em; margin-top: 5px;">
-    		<a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a> |
-    		<br class="conditional-break">
-		<a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a> |
-    		<br class="conditional-break">
-    		<a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a>
-	</p>
-        </div>	
+	<h3 style="max-width: 480px;">An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
+	</div>	
+
+        </div>
     </div>
 	
     <div class="nav">
-        <a href="https://ellaudet.github.io/dss_book/" class="nav-link active">HOME</a>
+        <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
         <span>|</span>
         <div class="dropdown">
-            <a href="#" class="nav-link inactive">STUDENT RESOURCES</a>
+            <a href="#" class="nav-link active">STUDENT RESOURCES</a>
             <div class="dropdown-content">
                 <a href="https://ellaudet.github.io/dss_book/resources_by_chapter/">BY CHAPTER</a>
-                <a href="https://ellaudet.github.io/dss_book/resources_by_type/">BY TYPE</a>
+                <a href="#" class="active">BY TYPE</a>
             </div>
         </div>
     </div>
 
+    <!-- Content Section -->	
+    <div class="content">
+    <div class="main-container">
+
+	<div class="container-row">
+		<div class="container-half">
+	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
+	    		<ul>
+				<li><a href="#code-data">Code and Datasets Used in the Book</a></li>
+				<li><a href="#interactive">Interactive Graphs</a></li>
+				<li><a href="#exercises">Review Exercises</a></li>
+				<li><a href="#videos">Videos</a></li>
+				<li><a href="#readings">Additional Readings</a></li>
+				</ul>
+	    		</div>
+
+		<div class="container-half">
+		<p style="color: #666; margin-bottom: -7px;"><em>Other Resources:</em></p>
+	        	<ul>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
+		    	<li><a href="https://bit.ly/dss_amazon" target="_blank">See in Amazon</a></li>
+		    	<li><a href="https://bit.ly/dss_exam" target="_blank">Request Exam Copy</a></li>
+		    	<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">DSS Instructor Resources</a></li>
+		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
+	        	</ul>
+	        	</div>
+    		</div>
+
+<h2 class="highlight"><a id="code-data">CODE AND DATASETS USED IN THE BOOK</a></h2>
 <div class="content">
 <div class="main-container">	
 	<div class="container">
