@@ -88,7 +88,7 @@ a:focus-visible {
 }
 
 .header-content h1 {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: 0.015em;
@@ -101,19 +101,18 @@ a:focus-visible {
     color: var(--muted);
 }
 
+/* Tagline: same size, weight and spacing as the title, but gray */
 .header-content h2:first-of-type {
-    margin-top: 6px;
-    font-size: 1.05em;
-    letter-spacing: 0.04em;
-    color: var(--ink);
-}
-
-.header-content h2:first-of-type em {
-    font-style: italic;
+    margin-top: 2px;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.015em;
+    color: var(--muted);
 }
 
 .header-content h2:nth-of-type(2) {
-    margin-top: 2px;
+    margin-top: 8px;
     font-size: 0.95em;
 }
 
@@ -265,11 +264,11 @@ h2.highlight .icon svg {
     stroke-linejoin: round;
 }
 
-/* Small label above the two top boxes */
+/* Label above the two top boxes */
 
 .eyebrow {
     margin: 0 0 6px;
-    font-size: 0.78em;
+    font-size: 0.92em;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -385,9 +384,7 @@ h2.highlight .icon svg {
 /* ---------- Praise quotes ---------- */
 
 .quote {
-    margin: 0 0 14px !important;
-    padding: 4px 0 4px 16px;
-    border-left: 3px solid var(--coral);
+    margin: 0 0 16px !important;
 }
 
 .quote .attr {
@@ -416,8 +413,9 @@ h2.highlight .icon svg {
         width: 84px;
     }
 
-    .header-content h1 {
-        font-size: 1.2em;
+    .header-content h1,
+    .header-content h2:first-of-type {
+        font-size: 1.15em;
     }
 
     /* Long description is hidden on phones/tablets to keep the header easy to read */
