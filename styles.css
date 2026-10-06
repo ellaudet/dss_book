@@ -229,17 +229,6 @@ h2.highlight {
     position: relative;
 }
 
-h2.highlight::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 56px;
-    height: 3px;
-    background: var(--coral);
-    border-radius: 3px;
-}
-
 h2.highlight a {
     color: inherit;
 }
