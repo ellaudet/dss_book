@@ -1,0 +1,451 @@
+/* ==========================================================================
+   DSS book site — shared stylesheet
+   Colors are taken from the book cover (coral #E63E43).
+   To change the look site-wide, edit the variables below.
+   ========================================================================== */
+
+:root {
+    --coral: #E63E43;          /* exact cover color: fills, rules, accents */
+    --coral-text: #D12F3A;     /* slightly deeper coral for text/links (readable on white) */
+    --coral-tint: #FDEEEF;     /* very light coral for hover backgrounds */
+    --ink: #262626;            /* body text */
+    --muted: #5C6168;          /* secondary text */
+    --line: #E6E6EA;           /* hairlines and borders */
+    --page: #F6F6F8;           /* page background */
+    --card: #FFFFFF;           /* card background */
+    --measure: 860px;          /* width of the content column */
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(20, 20, 30, 0.05), 0 4px 14px rgba(20, 20, 30, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 76px;   /* keeps anchored headings clear of the sticky nav */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans 3", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--coral-text);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 26px max(20px, calc((100% - var(--measure)) / 2));
+    background: var(--card);
+    border-top: 5px solid var(--coral);
+    border-bottom: 1px solid var(--line);
+}
+
+.header img {
+    flex: 0 0 auto;
+    width: 112px;
+    height: auto;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(20, 20, 30, 0.12), 0 8px 20px rgba(20, 20, 30, 0.14);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-content h1,
+.header-content h2,
+.header-content h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.header-content h1 {
+    font-size: 1.7em;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+    color: var(--coral-text);
+}
+
+.header-content h2 {
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.header-content h2:first-of-type {
+    margin-top: 6px;
+    font-size: 1.05em;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+}
+
+.header-content h2:first-of-type em {
+    font-style: italic;
+}
+
+.header-content h2:nth-of-type(2) {
+    margin-top: 2px;
+    font-size: 0.95em;
+}
+
+.header-content h3 {
+    margin-top: 8px;
+    max-width: 540px;
+    font-size: 0.92em;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+/* ---------- Navigation ---------- */
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 max(20px, calc((100% - var(--measure)) / 2));
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: saturate(160%) blur(8px);
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav a {
+    display: inline-block;
+    padding: 14px 14px 12px;
+    margin-left: -14px;          /* aligns the first link's text with the content edge */
+    font-size: 0.88em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+}
+
+.nav a + a {
+    margin-left: 0;
+}
+
+.nav a:hover {
+    color: var(--coral-text);
+    text-decoration: none;
+}
+
+.nav a.active {
+    color: var(--coral-text);
+    border-bottom-color: var(--coral);
+}
+
+/* ---------- Page layout ---------- */
+
+.content {
+    padding: 28px 20px 56px;
+}
+
+.main-container {
+    max-width: var(--measure);
+    margin: 0 auto;
+}
+
+/* ---------- Cards ---------- */
+
+.card,
+.container-half {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 28px;
+}
+
+.card {
+    margin-bottom: 22px;
+}
+
+.container-row {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.container-half {
+    flex: 1;
+}
+
+.card p,
+.container-half p {
+    margin: 0 0 0.9em;
+}
+
+.card p:last-child,
+.card ul:last-child {
+    margin-bottom: 0;
+}
+
+/* Section headings */
+
+h2.highlight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    padding-bottom: 12px;
+    font-size: 1.05em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+
+h2.highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 56px;
+    height: 3px;
+    background: var(--coral);
+    border-radius: 3px;
+}
+
+h2.highlight a {
+    color: inherit;
+}
+
+h2.highlight a:hover {
+    text-decoration: none;
+}
+
+h2.highlight .icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    color: var(--coral);
+}
+
+h2.highlight .icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Small label above the two top boxes */
+
+.eyebrow {
+    margin: 0 0 6px;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.lede {
+    color: var(--muted);
+    margin: 0 0 6px;
+}
+
+/* ---------- Lists ---------- */
+
+.card ul,
+.container-half ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+.card ul li,
+.container-half ul li {
+    margin-bottom: 0.45em;
+}
+
+.card ul li::marker {
+    color: var(--coral);
+}
+
+.card ul li > p {
+    margin-bottom: 0;
+}
+
+/* Link lists (top boxes) */
+
+.link-list {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.link-list li {
+    margin: 0 !important;
+    border-bottom: 1px solid var(--line);
+}
+
+.link-list li:last-child {
+    border-bottom: 0;
+}
+
+.link-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    border-radius: 6px;
+}
+
+.link-list a::after {
+    content: "→";
+    color: var(--coral);
+    transition: transform 0.15s ease;
+}
+
+.link-list a:hover {
+    background: var(--coral-tint);
+    text-decoration: none;
+}
+
+.link-list a:hover::after {
+    transform: translateX(3px);
+}
+
+/* Resource rows (resources page) */
+
+.resources {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.resources li {
+    margin: 0 !important;
+    border-bottom: 1px solid var(--line);
+}
+
+.resources li:last-child {
+    border-bottom: 0;
+}
+
+.resources li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 4px;
+}
+
+.resources li > a {
+    flex: 1;
+    font-weight: 600;
+}
+
+.chapter-tag {
+    flex: 0 0 auto;
+    padding: 2px 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--muted);
+    background: var(--page);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+}
+
+/* ---------- Praise quotes ---------- */
+
+.quote {
+    margin: 0 0 14px !important;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid var(--coral);
+}
+
+.quote .attr {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.92em;
+    font-weight: 600;
+    color: var(--coral-text);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+    .container-row {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .header {
+        gap: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .header img {
+        width: 84px;
+    }
+
+    .header-content h1 {
+        font-size: 1.2em;
+    }
+
+    /* Long description is hidden on phones/tablets to keep the header easy to read */
+    .header-content h3 {
+        display: none;
+    }
+
+    .nav a {
+        padding: 14px 12px 12px;
+    }
+
+    .card,
+    .container-half {
+        padding: 20px 18px;
+    }
+
+    .content {
+        padding: 20px 14px 44px;
+    }
+
+    .resources li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+/* Parenthetical notes inside paragraphs */
+.note {
+    color: var(--muted);
+}

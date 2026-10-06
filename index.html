@@ -4,487 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analysis for Social Science</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #444;
-        }
 
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ddd;
-        }
+    <!-- Font (Source Sans 3) and shared styles. All styling lives in styles.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 
-        .header img {
-            border-radius: 5px;
-            width: 110px;
-            height: auto;
-            margin-right: 10px;
-        }
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEPLTYLL6H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-	.header-content h1, .header-content h2, .header-content h3, .header-content p {
-            margin: 0;
-            padding: 0;
-        }
-	    
-        .header-content h1 {
-            font-size: 1.1em;
-            font-weight: normal;
-            text-transform: uppercase;
-	    color: #d32f2f;
-        }
-
-        .header-content h2:first-of-type {
-            margin-top: 3px;
-	    font-weight: normal;
-            font-size: 1em;
-        }
-
-        .header-content h2:nth-of-type(2) {
-            margin-top: -4px;
-            font-size: 0.9em;
-        }
-
-        .header-content h2 {
-            font-size: 1em;
-            font-weight: normal;
-            margin: 5px 0;
-            color: #666;
-        }
-
-	.header-content h3 {
-            font-size: 0.8em;
-            font-weight: normal;
-            margin: 0;
-	    color: #444;
-	    margin-top: 3px;
-	    max-width: 480px;
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 10px;
-            padding: 10px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-        }
-
-        .nav a {
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: normal;
-            color: #888;
-            white-space: nowrap;
-        }
-
-        .nav a.active {
-            color: #d32f2f;
-        }
-
-        .nav a:hover {
-            text-decoration: underline;
-        }
-
-        .nav span {
-            color: #888;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border: 1px solid #ddd;
-            top: 100%;
-            left: 0;
-        }
-
-        .dropdown-content a {
-            color: #888;
-            padding: 8px 12px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9em;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f4f4f4;
-            text-decoration: none;
-        }
-
-        .dropdown-content a.active {
-            color: #d32f2f;
-            background-color: #f9f9f9;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown > a {
-            cursor: pointer;
-        }
-
-        .content {
-            padding: 10px 20px;
-            background-color: #f4f4f4;
-        }
-
-        .content img.dss-photo {
-            float: right;
-            margin: 10px 0 10px 20px;
-            width: 200px;
-            height: auto;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-	.top-content {
- 	   display: flex;
-    	   gap: 40px;
-	   margin-bottom: 40px;
-	   align-items: flex-start; /* This ensures all items start from the top */
-	   padding: 0; /* Remove any padding that might affect alignment */
-	}    
-	    
-	.book-image {
-		    flex: 0 0 150px; /* Reduced from 200px to 150px */
-		    margin-top: 0; /* Ensure no top margin */
-	    }
-	    
-	.book-image img {
-    		width: 100%;
-    		height: auto;
-    		border-radius: 5px;
-    		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    		display: block; /* Ensures no extra space at bottom of image */
-	}
-
-        .intro-content {
-            flex: 1;
-        }
-
-	.intro-content h2, .intro-content h3 {
-		margin-top: 0; /* Removes the top margin pushing the text down */
-	}    
-
-        p {
-            margin: 1em 0;
-        }
-
-        a {
-            color: #d32f2f;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .highlight {
-            color: #d32f2f;
-            font-size: 1.1em;
-            margin-top: 1.5em;
-            margin-bottom: 0.2em;
-            font-weight: 500;
-        }
-
-        /* Remove top margin from paragraphs that immediately follow chapter headings */
-        .highlight + p {
-            margin-top: 0;
-        }
-
-        /* Remove top margin from lists that immediately follow paragraphs */
-        p + ul {
-            margin-top: 0;
-        }
-
-        /* Remove top margin from lists that immediately follow headings */
-        .highlight + ul {
-            margin-top: 0;
-        }
-
-        /* Add more space after headings that don't have paragraphs */
-        #videos, #readings {
-            margin-bottom: 0.5em;
-        }
-        
-	    h3 {
-            color: #666;
-	    font-size: 1em;
-            margin-top: 0;
-            margin-bottom: 0.2em;
-	    font-weight: 500;	    
-        }
-
-        .chapter-tag {
-            color: #888;
-            font-size: 1em;
-            font-weight: normal;
-        }
-
-	    .author {
-            margin-bottom: 1.5em;
-	    font-size: 1em; /* Set the font size to match your standard text size */
-    	    font-weight: normal; /* Remove bold styling */
-        }
-
-        .quote {
-            margin-left: 0px;
-            margin-bottom: 1em;
-        }
-	
-	@media (max-width: 768px) {
-            .top-content {
-                flex-direction: column;
-            }
-
-            .book-image {
-                flex: 0 0 auto;
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            .nav span {
-                display: none;
-            }
-
-            .container-row {
-                flex-direction: column;
-            }
-
-            .header-content h3 {
-                display: none;
-            }
-        }
-
-	/* Hide the break on large screens */
-    	.conditional-break {
-        	display: none;
-    	}
-
-    	/* Show the break on screens smaller than 500px */
-    	@media (max-width: 500px) {
-        .conditional-break {
-            display: block;
-        	}
-    	}
-
-	/* Hide the break on small screens */
-    	.break-large-screen {
-        display: none;
-    	}
-
-    	/* Show the break on screens wider than 400px */
-    	@media (min-width: 850px) {
-        .break-large-screen {
-            display: inline;
-        	}
-    	}
-	    
-	/* Hide text on screens smaller than 768px (common breakpoint for tablets and below) */
-	.desktop-only {
-    		display: none;
-		}
-
-	/* Show text on screens larger than 768px (common breakpoint for desktops) */
-	@media (min-width: 768px) {
-    		.desktop-only {
-        	display: block;
-    	}
-	}
-
-	.container {
-    	max-width: 700px;
-    	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
-    	padding: 10px 25px;
-    	background-color: #fff;
-    	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	}
-
-	.container-row {
-		display: flex;
-		gap: 20px;
-		margin-bottom: 20px;
-	}
-
-	.container-half {
-		flex: 1;
-		padding: 10px 25px;
-		background-color: #fff;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	}
-	    
-	.container h2, .container p, .container ul, .container li, 
-	.container-half h2, .container-half p, .container-half ul, .container-half li {
-    	margin-top: 0; /* Remove top margin */
-    	margin-bottom: 0; /* Remove bottom margin */
-    	padding: 0; /* No padding inside elements */
-	}
-
-	.container h2, .container-half h2 {
-    	color: #d32f2f;
-    	border-bottom: 2px solid #d32f2f;
-    	padding-bottom: 10px; /* Optional: add padding below the header if needed */
-	}
-
-	.container p, .container ul, .container-half p, .container-half ul {
-    	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
-    	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
-	}
-
-	.container ul, .container-half ul {
-    	padding-left: 20px; /* Keep list indentation */
-	}
-
-	.container a, .container-half a {
-    	color: #d32f2f;
-    	text-decoration: none;
-	}
-
-	.container a:hover, .container-half a:hover {
-    	text-decoration: underline;
-	}
-
-	.container p, .container-half p {
-            margin-bottom: 0; /* Ensures no extra space after the paragraph */
-        }
-        .container ul, .container-half ul {
-            margin-top: 0; /* Ensures no extra space before the list */
-        }
-        .container ul li, .container-half ul li {
-            margin-bottom: 0.5em; /* Adds space after each list item */
-        }
-	    
-	ul {
-    	margin-bottom: 0.5em; /* Adds a half-line space after the entire list */
-	}
-
-	ul li {
-    	margin-bottom: 0.5em; /* Adds a half-line space after each list item */
-	}
-
-	ul > li > ul {
- 	   margin-left: 20px;
-    	   padding-left: 0;
-	}   
-
-	.container ul li, .container-half ul li {
-	    margin-bottom: 0.4em; /* Removes extra space after each list item */
-	}
-
-	.container ul li ul, .container-half ul li ul {
-    	padding-top: 0; /* Reduces space before the start of a nested list */
-	}
-
-	.main-container {
-            max-width: 900px; /* Sets the maximum width for the content */
-            }    
-
-    </style>
+      gtag('config', 'G-YEPLTYLL6H');
+    </script>
 </head>
-
-<!-- Google Analytics Tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YEPLTYLL6H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YEPLTYLL6H');
-</script>
 
 <!-- Body -->
 <body>
-    
+
     <div class="header">
-        <img src="../images/DSS.png" alt="DSS">
+        <img src="images/DSS_cover.png" alt="Cover of Data Analysis for Social Science">
         <div class="header-content">
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
-            <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
-	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
-	    <h3>An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
+            <h2>A <em>FRIENDLY</em> AND <em>PRACTICAL</em> INTRODUCTION</h2>
+            <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
+            <h3>An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
         </div>
     </div>
-	
-    <div class="nav">
-        <a href="https://ellaudet.github.io/dss_book/" class="nav-link active">HOME</a>
-        <span>|</span>
-        <a href="https://ellaudet.github.io/dss_book/student_resources_by_type/" class="nav-link inactive">STUDENT RESOURCES</a>
-    </div>
 
-    <!-- Content Section -->	
+    <nav class="nav">
+        <a href="https://ellaudet.github.io/dss_book/" class="nav-link active">HOME</a>
+        <a href="https://ellaudet.github.io/dss_book/student_resources_by_type/" class="nav-link">STUDENT RESOURCES</a>
+    </nav>
+
+    <!-- Content Section -->
     <div class="content">
     <div class="main-container">
 
-	<div class="container-row">
-		<div class="container-half">
-	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
-	    		<ul>
-			<li><a href="#praise">Selected Praise</a></li>
-			<li><a href="#overview">Book Overview</a></li>
-			<li><a href="#chapters">Chapter Summaries</a></li>
-			<li><a href="#features">Features</a></li>
-			<li><a href="#authors">About the Authors</a></li>
-			</ul>
-			
-	    		</div>
+        <div class="container-row">
+            <div class="container-half">
+                <p class="eyebrow">What's On This Page?</p>
+                <ul class="link-list">
+                    <li><a href="#praise">Selected Praise</a></li>
+                    <li><a href="#overview">Book Overview</a></li>
+                    <li><a href="#chapters">Chapter Summaries</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#authors">About the Authors</a></li>
+                </ul>
+            </div>
 
-		<div class="container-half">
-		<p style="color: #666; margin-bottom: -7px;"><em>Quick Links:</em></p>
-	        	<ul>
-		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
-		    	<li><a href="https://www.amazon.com/dp/0691199434" target="_blank">View on Amazon</a></li>
-		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-		    	<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
-			<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
-	        	</ul>
-	        	</div>
-    		</div>
-	
+            <div class="container-half">
+                <p class="eyebrow">Quick Links</p>
+                <ul class="link-list">
+				<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
+				<li><a href="https://www.amazon.com/dp/0691199434" target="_blank">View on Amazon</a></li>
+				<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
+				<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
+				<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
+			</ul>
+            </div>
+        </div>
+
+<section class="card">
 <h2 class="highlight"><a id="praise">SELECTED PRAISE</a></h2>
-<p class="quote">"I love this book. More importantly, my students love this book." — <span style="color: #d32f2f;">Anna Harvey, NYU</span></p>
-<p class="quote">"This is without doubt the best book to get started with data analysis in the social sciences. My students—all of them complete novices—were easily able to conduct their own analyses after working through this book." — <span style="color: #d32f2f;">Simon Weschle, Syracuse University</span></p>
-<p class="quote">"[This book] is a game changer! I have been teaching quantitative methods for 14 years, and I never had such good results and engagement from my students until I adopted this book." — <span style="color: #d32f2f;">Javier Sajuria, Queen Mary University of London</span></p>
-<p class="quote">"[This book] is outstanding—by far the most effective introductory textbook on the topic I have come across in more than a decade of teaching this material. I am amazed by how easy it makes my job as an instructor." — <span style="color: #d32f2f;">PJ Lamberson, UCLA</span></p>
-<p class="quote">"This is the book that I plan to teach from, next time I teach introductory statistics. As it is, I recommend it as a reference for students in more advanced classes such as Applied Regression and Causal Inference, if they want a clean refresher from first principles." — <span style="color: #d32f2f;">Andrew Gelman, co-author of Regression and Other Stories</span></p>
-<p class="quote">"Data science from zero to sixty—gently, expertly, quickly." — <span style="color: #d32f2f;">Gary King, Harvard University</span></p>
-<p class="quote">"This book will transform the way we teach data science in the social sciences. Assuming zero background knowledge, it takes readers step-by-step through the most important concepts of data analysis and coding without sacrificing rigor." — <span style="color: #d32f2f;">Molly Roberts, UC San Diego</span></p>
-<p class="quote">"I have been teaching statistics for twenty-five years and I have never seen a book this well done." — <span style="color: #d32f2f;">Vanessa Baird, University of Colorado Boulder</span></p>
-<p class="quote">"I particularly love its problem-solving approach. While most textbooks teach statistics without offering students a clear motivation, this one teaches statistics as a way to solve real problems with real datasets." — <span style="color: #d32f2f;">Guillermo Solovey, University of Buenos Aires</span></p>
-<p class="quote">"My favorite feature is that it puts causal inference first, before probability and statistical inference. I have found that this unconventional order is gentler and more engaging for complete beginners than the approach used in many other books. It also allows students with some prior knowledge of statistics to learn something new from the start." — <span style="color: #d32f2f;">Max Goplerud, University of Pittsburgh</span></p>
-<p class="quote">"I especially like that it teaches point estimates and uncertainty separately. In the past, when I taught these concepts together, I found students were overwhelmed. Breaking them up makes the statistics easier to understand. It's a genius idea!" — <span style="color: #d32f2f;">Christopher Ojeda, UC Merced</span></p>
-<p class="quote">"Students liked the clear explanations and relevant real-world examples, and they even found coding in R fun!" — <span style="color: #d32f2f;">Alicia Cooperman, GW University</span></p>
-<p class="quote">"I don't think I've seen a more accessible introduction to R and RStudio—cheat sheets included!" — <span style="color: #d32f2f;">Didier Ruedin, University of Neuchâtel</span></p>
-<p class="quote">"[T]he instructor resources that come with it are the best I've seen provided with a textbook and made adopting the book much easier." — <span style="color: #d32f2f;">Mark Richardson, Georgetown University</span></p>
-	    
-        <h2 class="highlight"><a id="overview">BOOK OVERVIEW</a></h2>
+<p class="quote">"I love this book. More importantly, my students love this book."<span class="attr">— Anna Harvey, NYU</span></p>
+<p class="quote">"This is without doubt the best book to get started with data analysis in the social sciences. My students—all of them complete novices—were easily able to conduct their own analyses after working through this book."<span class="attr">— Simon Weschle, Syracuse University</span></p>
+<p class="quote">"[This book] is a game changer! I have been teaching quantitative methods for 14 years, and I never had such good results and engagement from my students until I adopted this book."<span class="attr">— Javier Sajuria, Queen Mary University of London</span></p>
+<p class="quote">"[This book] is outstanding—by far the most effective introductory textbook on the topic I have come across in more than a decade of teaching this material. I am amazed by how easy it makes my job as an instructor."<span class="attr">— PJ Lamberson, UCLA</span></p>
+<p class="quote">"This is the book that I plan to teach from, next time I teach introductory statistics. As it is, I recommend it as a reference for students in more advanced classes such as Applied Regression and Causal Inference, if they want a clean refresher from first principles."<span class="attr">— Andrew Gelman, co-author of Regression and Other Stories</span></p>
+<p class="quote">"Data science from zero to sixty—gently, expertly, quickly."<span class="attr">— Gary King, Harvard University</span></p>
+<p class="quote">"This book will transform the way we teach data science in the social sciences. Assuming zero background knowledge, it takes readers step-by-step through the most important concepts of data analysis and coding without sacrificing rigor."<span class="attr">— Molly Roberts, UC San Diego</span></p>
+<p class="quote">"I have been teaching statistics for twenty-five years and I have never seen a book this well done."<span class="attr">— Vanessa Baird, University of Colorado Boulder</span></p>
+<p class="quote">"I particularly love its problem-solving approach. While most textbooks teach statistics without offering students a clear motivation, this one teaches statistics as a way to solve real problems with real datasets."<span class="attr">— Guillermo Solovey, University of Buenos Aires</span></p>
+<p class="quote">"My favorite feature is that it puts causal inference first, before probability and statistical inference. I have found that this unconventional order is gentler and more engaging for complete beginners than the approach used in many other books. It also allows students with some prior knowledge of statistics to learn something new from the start."<span class="attr">— Max Goplerud, University of Pittsburgh</span></p>
+<p class="quote">"I especially like that it teaches point estimates and uncertainty separately. In the past, when I taught these concepts together, I found students were overwhelmed. Breaking them up makes the statistics easier to understand. It's a genius idea!"<span class="attr">— Christopher Ojeda, UC Merced</span></p>
+<p class="quote">"Students liked the clear explanations and relevant real-world examples, and they even found coding in R fun!"<span class="attr">— Alicia Cooperman, GW University</span></p>
+<p class="quote">"I don't think I've seen a more accessible introduction to R and RStudio—cheat sheets included!"<span class="attr">— Didier Ruedin, University of Neuchâtel</span></p>
+<p class="quote">"[T]he instructor resources that come with it are the best I've seen provided with a textbook and made adopting the book much easier."<span class="attr">— Mark Richardson, Georgetown University</span></p>
+</section>
+
+<section class="card">
+<h2 class="highlight"><a id="overview">BOOK OVERVIEW</a></h2>
         <p>Assuming no prior knowledge of statistics or coding and only minimal knowledge of math, <em>Data Analysis for Social Science</em> (DSS for short) teaches the fundamentals of survey research, predictive models, and causal inference, plus how to analyze real-world data with the free and popular statistical program R.</p>
         <p>It progresses by teaching how to solve one kind of problem after another, bringing in methods as needed. It teaches, in this order, how to (1) estimate causal effects with randomized experiments, (2) visualize and summarize data, (3) infer population characteristics, (4) predict outcomes, (5) estimate causal effects with observational data, and (6) generalize from sample to population.</p>
         <p>It flips the script of traditional statistics textbooks. It starts by estimating causal effects with randomized experiments and postpones any discussion of probability and statistical inference until the final chapters. This unconventional order engages students by demonstrating from the very beginning how data analysis can be used to answer interesting questions, while reserving more abstract, complex concepts for later chapters.</p>
+</section>
 
-        <h2 class="highlight"><a id="chapters">CHAPTER SUMMARIES</a></h2>
+<section class="card">
+<h2 class="highlight"><a id="chapters">CHAPTER SUMMARIES</a></h2>
         <p>In chapter 1, we start from the very beginning by familiarizing ourselves with RStudio and R and learning to load and make sense of data. (Full chapter, including CHEATSHEET, available for free <a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">here</a>.)</p>
         <p>In chapter 2, we learn what causal effects are and how to estimate them using randomized experiments. We analyze data from Project STAR to answer: What is the effect of small classes on student performance?</p>
         <p>In chapter 3, we learn about surveys and how to visualize and summarize the distribution of single variables as well as the relationship between two variables. We analyze data on the 2016 British referendum to answer: Who Supported Brexit?</p>
@@ -492,8 +102,10 @@
         <p>In chapter 5, we learn how to estimate causal effects using observational data. We analyze survey and electoral data to answer: What was the effect of Russian TV propaganda on the 2014 Ukrainian elections?</p>
         <p>In chapter 6, we cover basic probability. We learn about random variables and their distributions, the distinction between population parameters and sample statistics, and the two large sample theorems that enable us to measure statistical uncertainty.</p>
         <p>In chapter 7, we learn how to quantify the uncertainty in our empirical findings in order to draw conclusions at the population level. We complete some of the analyses we started in chapters 2 through 5.</p>
-        
-        <h2 class="highlight"><a id="features">FEATURES</a></h2>
+</section>
+
+<section class="card">
+<h2 class="highlight"><a id="features">FEATURES</a></h2>
         <ul>
             <li><p>Provides a step-by-step guide to analyzing real-world data using the powerful, open-source statistical program R, which is free for everyone to use. The datasets are provided on the <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">book's official website</a> so that readers can learn how to analyze data by following along with the analyses in the book on their own computer.</p></li>
             <li><p>Specifically designed to accommodate students with a variety of math backgrounds. It includes supplemental materials for students with minimal knowledge of math and clearly identifies sections with more advanced material so that readers can skip them if they so choose.</p></li>
@@ -504,7 +116,9 @@
             <li><p>Whenever a new piece of R code is introduced, in the margin you will find a brief overview of how it works with an example (displayed in a cyan-colored frame).</p></li>
             <li><p>Comes with instructor materials (upon request), including sample syllabus, lecture slides, additional replication exercises with solutions, and real-world datasets. Instructors: Request your exam copy <a href="https://orderexamcopy.com/?CampaignId=d2be8db9-2fa8-4431-99a5-2cc81d4ff9a5&amp;j=633191&amp;sfmc_sub=104343297&amp;l=309_HTML&amp;u=15248376&amp;mid=100015110&amp;jb=51" target="_blank">here</a>, preview some instructor materials <a href="https://ellaudet.github.io/dss_instructor_resources/" target="_blank">here</a>, and request the complete set of instructor materials <a href="https://press.princeton.edu/instructor-resources/data-analysis-for-social-science" target="_blank">here</a>.</p></li>
         </ul>
+</section>
 
+<section class="card">
 <h2 class="highlight"><a id="authors">ABOUT THE AUTHORS</a></h2>
 <p><a href="https://ellaudet.github.io/" target="_blank">Elena Llaudet</a> is an Associate Professor of Political Science at Suffolk University in Boston, where she teaches introductory quantitative methods to undergraduates with no prior experience in statistics or coding. 
 	   She holds a Ph.D. in Political Science from Harvard University and has earned Suffolk's Innovative Teaching Award for developing her data analysis course, which inspired many of the pedagogical approaches used in this book.</p>
@@ -513,9 +127,10 @@
 	He is the author of <em><a href="https://press.princeton.edu/books/hardcover/9780691167039/quantitative-social-science" target="_blank">Quantitative Social Science</a></em>, the textbook on which <em>Data Analysis for Social Science</em> is based. 
 	He is a leading expert in quantitative methodology and has authored numerous influential papers on causal inference, survey research, and computational social science.</p>
 <p>Together, we bring decades of combined experience teaching statistics, from complete beginners to advanced researchers. We sincerely hope our book is helpful to you! — Elena and Kosuke</p>
+</section>
 
-</div>
-</div>	
+    </div>
+    </div>
 
 <script>
     // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
@@ -526,6 +141,6 @@
         }
     });
 </script>
-	
+
 </body>
 </html>

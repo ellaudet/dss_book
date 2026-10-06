@@ -4,484 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSS Student Resources</title>
-    <style>
-        body {
-            font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #444;
-        }
 
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ddd;
-        }
+    <!-- Font (Source Sans 3) and shared styles. All styling lives in styles.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
 
-        .header img {
-            border-radius: 5px;
-            width: 110px;
-            height: auto;
-            margin-right: 10px;
-        }
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEPLTYLL6H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-	.header-content h1, .header-content h2, .header-content h3, .header-content p {
-            margin: 0;
-            padding: 0;
-        }
-	    
-        .header-content h1 {
-            font-size: 1.1em;
-            font-weight: normal;
-            text-transform: uppercase;
-	    color: #d32f2f;
-        }
-
-        .header-content h2:first-of-type {
-            margin-top: 3px;
-	    font-weight: normal;
-            font-size: 1em;
-        }
-
-        .header-content h2:nth-of-type(2) {
-            margin-top: -4px;
-            font-size: 0.9em;
-        }
-
-        .header-content h2 {
-            font-size: 1em;
-            font-weight: normal;
-            margin: 5px 0;
-            color: #666;
-        }
-
-	.header-content h3 {
-            font-size: 0.8em;
-            font-weight: normal;
-            margin: 0;
-	    color: #444;
-	    margin-top: 3px;
-            max-width: 480px;
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 10px;
-            padding: 10px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-        }
-
-        .nav a {
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: normal;
-            color: #888;
-            white-space: nowrap;
-        }
-
-        .nav a.active {
-            color: #d32f2f;
-        }
-
-        .nav a:hover {
-            text-decoration: underline;
-        }
-
-        .nav span {
-            color: #888;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border: 1px solid #ddd;
-            top: 100%;
-            left: 0;
-        }
-
-        .dropdown-content a {
-            color: #888;
-            padding: 8px 12px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9em;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f4f4f4;
-            text-decoration: none;
-        }
-
-        .dropdown-content a.active {
-            color: #d32f2f;
-            background-color: #f9f9f9;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown > a {
-            cursor: pointer;
-        }
-
-        .content {
-            padding: 10px 20px;
-            background-color: #f4f4f4;
-        }
-
-        .content img.dss-photo {
-            float: right;
-            margin: 10px 0 10px 20px;
-            width: 200px;
-            height: auto;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-	.top-content {
- 	   display: flex;
-    	   gap: 40px;
-	   margin-bottom: 40px;
-	   align-items: flex-start; /* This ensures all items start from the top */
-	   padding: 0; /* Remove any padding that might affect alignment */
-	}    
-	    
-	.book-image {
-		    flex: 0 0 150px; /* Reduced from 200px to 150px */
-		    margin-top: 0; /* Ensure no top margin */
-	    }
-	    
-	.book-image img {
-    		width: 100%;
-    		height: auto;
-    		border-radius: 5px;
-    		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    		display: block; /* Ensures no extra space at bottom of image */
-	}
-
-        .intro-content {
-            flex: 1;
-        }
-
-	.intro-content h2, .intro-content h3 {
-		margin-top: 0; /* Removes the top margin pushing the text down */
-	}    
-
-        p {
-            margin: 1em 0;
-        }
-
-        a {
-            color: #d32f2f;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-		.highlight {
-    	color: #444 !important;
-    	font-size: 1.1rem;
-    	margin-top: 1.5rem;
-    	margin-bottom: 0.2rem;
-    	font-weight: 500;
-		}
-
-        /* Remove top margin from paragraphs that immediately follow chapter headings */
-        .highlight + p {
-            margin-top: 0;
-        }
-
-        /* Remove top margin from lists that immediately follow paragraphs */
-        p + ul {
-            margin-top: 0;
-        }
-
-        /* Remove top margin from lists that immediately follow headings */
-        .highlight + ul {
-            margin-top: 0;
-        }
-
-        /* Add more space after headings that don't have paragraphs */
-        #videos, #readings {
-            margin-bottom: 0.5em;
-        }
-        
-	    h3 {
-            color: #666;
-	    font-size: 1em;
-            margin-top: 0;
-            margin-bottom: 0.2em;
-	    font-weight: 500;	    
-        }
-
-        .chapter-tag {
-            color: #888;
-            font-size: 1em;
-            font-weight: normal;
-        }
-
-	    .author {
-            margin-bottom: 1.5em;
-	    font-size: 1em; /* Set the font size to match your standard text size */
-    	    font-weight: normal; /* Remove bold styling */
-        }
-
-        .quote {
-            margin-left: 0px;
-            margin-bottom: 1em;
-        }
-	
-	@media (max-width: 768px) {
-            .top-content {
-                flex-direction: column;
-            }
-
-            .book-image {
-                flex: 0 0 auto;
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            .nav span {
-                display: none;
-            }
-
-            .container-row {
-                flex-direction: column;
-            }
-
-            .header-content h3 {
-                display: none;
-            }
-        }
-
-	/* Hide the break on large screens */
-    	.conditional-break {
-        	display: none;
-    	}
-
-    	/* Show the break on screens smaller than 500px */
-    	@media (max-width: 500px) {
-        .conditional-break {
-            display: block;
-        	}
-    	}
-
-	/* Hide the break on small screens */
-    	.break-large-screen {
-        display: none;
-    	}
-
-    	/* Show the break on screens wider than 400px */
-    	@media (min-width: 850px) {
-        .break-large-screen {
-            display: inline;
-        	}
-    	}
-	    
-	/* Hide text on screens smaller than 768px (common breakpoint for tablets and below) */
-	.desktop-only {
-    		display: none;
-		}
-
-	/* Show text on screens larger than 768px (common breakpoint for desktops) */
-	@media (min-width: 768px) {
-    		.desktop-only {
-        	display: block;
-    	}
-	}
-
-	.container {
-    	max-width: 700px;
-    	margin: 20px 20px 20px 0; /* Adjusted margin for left alignment */
-    	padding: 10px 25px;
-    	background-color: #fff;
-    	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	}
-
-	.container-row {
-		display: flex;
-		gap: 20px;
-		margin-bottom: 20px;
-	}
-
-	.container-half {
-		flex: 1;
-		padding: 10px 25px;
-		background-color: #fff;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	}
-	    
-	.container h2, .container p, .container ul, .container li, 
-	.container-half h2, .container-half p, .container-half ul, .container-half li {
-    	margin-top: 0; /* Remove top margin */
-    	margin-bottom: 0; /* Remove bottom margin */
-    	padding: 0; /* No padding inside elements */
-	}
-
-	.container h2, .container-half h2 {
-    	color: #d32f2f;
-    	border-bottom: 2px solid #d32f2f;
-    	padding-bottom: 10px; /* Optional: add padding below the header if needed */
-	}
-
-	.container p, .container ul, .container-half p, .container-half ul {
-    	padding-top: 10px; /* Optional: add padding to top of paragraph and lists if needed */
-    	padding-bottom: 10px; /* Optional: add padding to bottom of paragraph and lists if needed */
-	}
-
-	.container ul, .container-half ul {
-    	padding-left: 20px; /* Keep list indentation */
-	}
-
-	.container a, .container-half a {
-    	color: #d32f2f;
-    	text-decoration: none;
-	}
-
-	.container a:hover, .container-half a:hover {
-    	text-decoration: underline;
-	}
-
-	.container p, .container-half p {
-            margin-bottom: 0; /* Ensures no extra space after the paragraph */
-        }
-        .container ul, .container-half ul {
-            margin-top: 0; /* Ensures no extra space before the list */
-        }
-        .container ul li, .container-half ul li {
-            margin-bottom: 0.5em; /* Adds space after each list item */
-        }
-	    
-	ul {
-    	margin-bottom: 0.5em; /* Adds a half-line space after the entire list */
-	}
-
-	ul li {
-    	margin-bottom: 0.5em; /* Adds a half-line space after each list item */
-	}
-
-	ul > li > ul {
- 	   margin-left: 20px;
-    	   padding-left: 0;
-	}   
-
-	.container ul li, .container-half ul li {
-	    margin-bottom: 0.4em; /* Removes extra space after each list item */
-	}
-
-	.container ul li ul, .container-half ul li ul {
-    	padding-top: 0; /* Reduces space before the start of a nested list */
-	}
-
-	.main-container {
-            max-width: 900px; /* Sets the maximum width for the content */
-            }    
-
-    </style>
+      gtag('config', 'G-YEPLTYLL6H');
+    </script>
 </head>
-
-<!-- Google Analytics Tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YEPLTYLL6H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YEPLTYLL6H');
-</script>
 
 <!-- Body -->
 <body>
-    
+
     <div class="header">
-        <img src="../images/DSS.png" alt="DSS">
+        <img src="../images/DSS_cover.png" alt="Cover of Data Analysis for Social Science">
         <div class="header-content">
             <h1>DATA ANALYSIS FOR SOCIAL SCIENCE</h1>
-            <h2>A FRIENDLY AND PRACTICAL INTRODUCTION</h2>	
-	    <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
-	    <h3>An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
+            <h2>A <em>FRIENDLY</em> AND <em>PRACTICAL</em> INTRODUCTION</h2>
+            <h2>Elena Llaudet and Kosuke Imai (Princeton University Press)</h2>
+            <h3>An ideal textbook for complete beginners — teaches from scratch R, statistics, and the fundamentals of quantitative social science</h3>
         </div>
     </div>
-	
-    <div class="nav">
-        <a href="https://ellaudet.github.io/dss_book/" class="nav-link inactive">HOME</a>
-        <span>|</span>
-        <a href="#" class="nav-link active">STUDENT RESOURCES</a>
-    </div>
 
-    <!-- Content Section -->	
+    <nav class="nav">
+        <a href="https://ellaudet.github.io/dss_book/" class="nav-link">HOME</a>
+        <a href="#" class="nav-link active">STUDENT RESOURCES</a>
+    </nav>
+
+    <!-- Content Section -->
     <div class="content">
     <div class="main-container">
 
-	<div class="container-row">
-		<div class="container-half">
-	   	<p style="color: #666; margin-bottom: -7px;"><em>What's On This Page?</em></p>
-		<p style="margin-bottom: -7px;">Student resources to complement DSS, organized by type:</p>
-	    		<ul>
-				<li><a href="#code-data">Code and Datasets</a></li>
-				<li><a href="#exercises">Self-Graded Review Exercises</a></li>
-				<li><a href="#interactive">Interactive Graphs</a></li>
-				<li><a href="#other">Videos and Additional Readings</a></li>
-				</ul>
-	    		</div>
+        <div class="container-row">
+            <div class="container-half">
+                <p class="eyebrow">What's On This Page?</p>
+                <p class="lede">Student resources to complement DSS, organized by type:</p>
+                <ul class="link-list">
+                    <li><a href="#code-data">Code and Datasets</a></li>
+                    <li><a href="#exercises">Self-Graded Review Exercises</a></li>
+                    <li><a href="#interactive">Interactive Graphs</a></li>
+                    <li><a href="#other">Videos and Additional Readings</a></li>
+                </ul>
+            </div>
 
-	    	<div class="container-half">
-		<p style="color: #666; margin-bottom: -7px;"><em>Quick Links:</em></p>
-	        	<ul>
-		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
-		    	<li><a href="https://www.amazon.com/dp/0691199434" target="_blank">View on Amazon</a></li>
-		    	<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
-		    	<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
-			<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
-	        	</ul>
-	        	</div>
-    		</div>
-	
+            <div class="container-half">
+                <p class="eyebrow">Quick Links</p>
+                <ul class="link-list">
+				<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science#preview" target="_blank">Read First Chapter</a></li>
+				<li><a href="https://www.amazon.com/dp/0691199434" target="_blank">View on Amazon</a></li>
+				<li><a href="https://press.princeton.edu/books/paperback/9780691199436/data-analysis-for-social-science" target="_blank">Official Book Website</a></li>
+				<li><a href="https://www.iwanami.co.jp/book/b656062.html" target="_blank">Japanese Translation</a></li>
+				<li><a href="https://ellaudet.github.io/dss_instructor_resources" target="_blank">Instructor Resources</a></li>
+			</ul>
+            </div>
+        </div>
 
-<h2 class="highlight" id="code-data">CODE AND DATASETS USED IN DSS </h2>
+<section class="card">
+<h2 class="highlight" id="code-data"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>CODE AND DATASETS USED IN DSS</h2>
 <p>All code and datasets used in the book are available in the DSS folder <a href="https://press.princeton.edu/student-resources/data-analysis-for-social-science" target="_blank">here</a>.</p>
+</section>
 
-<h2 class="highlight" id="exercises">SELF-GRADED REVIEW EXERCISES</h2>
+<section class="card">
+<h2 class="highlight" id="exercises"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>SELF-GRADED REVIEW EXERCISES</h2>
 <p> Interactive R tutorials for students to check their understanding of the material on their own <em>after</em> completing the readings and performing the analyses explained in the book — they are meant to supplement, not replace, the book.
 Each includes multiple-choice questions and hands-on coding exercises with instant feedback. At the end, students can generate a progress report of their work.
-Eventually, there will be a tutorial for each chapter in the book. Check again soon! <span style="color: #888;">(To access them, run the code in the linked R script in RStudio. 
+Eventually, there will be a tutorial for each chapter in the book. Check again soon! <span class="note">(To access them, run the code in the linked R script in RStudio. 
     Watch the <a href="https://youtu.be/BnXqxeKAo4Q?feature=shared" target="_blank">walkthrough video</a>.)</span></p>		
-<ul>
+<ul class="resources">
 <li><a href="https://www.dropbox.com/scl/fi/5gnrm17uni0sk23g9z9qp/DSS_Review_Exercises_Chapter1.R?rlkey=x4ex3hpktstra2omm3u2kl8qk&st=f4jk3ck5&dl=0" target="_blank">Chapter 1. Introduction</a></li>
 <li><a href="https://www.dropbox.com/scl/fi/h4jmt9xin4lb053gasv6n/DSS_Review_Exercises_Chapter2.R?rlkey=pzhmrder8kr7e0hqvk68988e7&st=lkrmhop5&dl=0" target="_blank">Chapter 2. Estimating Causal Effects with Randomized Experiments</a></li>
 <li><a href="https://www.dropbox.com/scl/fi/cnruzhpz6b2t9ai9apea5/DSS_Review_Exercises_Chapter3.R?rlkey=ekd3kp4sng1ssu980lplj6ewu&st=gt08ftjj&dl=0" target="_blank">Chapter 3. Inferring Population Characteristics via Survey Research</a></li>
 <li><a href="https://www.dropbox.com/scl/fi/ax98546w43ecxjatvdryo/DSS_Review_Exercises_Chapter4.R?rlkey=e6ub5cm9ibr8mg3tbenj3m3n9&dl=0" target="_blank">Chapter 4. Predicting Outcomes Using Linear Regression</a></li>
 </ul>
-		
-<h2 class="highlight" id="interactive">INTERACTIVE GRAPHS</h2>
+</section>
+
+<section class="card">
+<h2 class="highlight" id="interactive"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>INTERACTIVE GRAPHS</h2>
 <p>Dynamic graphs that students can interact with in real time, directly in their browser, designed to build intuition about key concepts in statistics.</p>
 
-<ul>
+<ul class="resources">
 <li><a href="https://ellaudet.github.io/graphs/random_assignment.html" target="_blank">Random Treatment Assignment</a> <span class="chapter-tag">(Chapter 2)</span></li>
 
 <li><a href="https://ellaudet.github.io/graphs/random_sampling.html" target="_blank">Random Sampling</a> <span class="chapter-tag">(Chapter 3)</span></li>
@@ -495,16 +105,19 @@ Eventually, there will be a tutorial for each chapter in the book. Check again s
 <li><a href="https://ellaudet.github.io/graphs/least_squares.html" target="_blank">Least Squares Method</a> <span class="chapter-tag">(Chapter 4)</span></li>
 	
 </ul>
+</section>
 
-<h2 class="highlight" id="other">VIDEOS AND ADDITIONAL READINGS </h2>
+<section class="card">
+<h2 class="highlight" id="other"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span>VIDEOS AND ADDITIONAL READINGS</h2>
 
-<ul>
+<ul class="resources">
 <li><a href="https://www.dropbox.com/scl/fi/5bk6q1hc9pih6f10s47fu/appendix_analyzing_data_in_the_cloud_using_posit_cloud.pdf?rlkey=vkhtjmdvxcihf77ukgdiraqoz&st=cbbam44k&dl=0" target="_blank">How to Use Posit Cloud for Data Analysis</a> <span class="chapter-tag">(Chapter 1, PDF)</span></li>
 <li><a href="https://www.youtube.com/watch?v=hLhXCo2jQkg" target="_blank">How to Run a Randomized Experiment</a> <span class="chapter-tag">(Chapter 2, video)</span></li>
 </ul>
-	
-	
-<pre>&nbsp;</pre>    
+</section>
+
+    </div>
+    </div>
 
 <script>
     // Only add target="_blank" to links that are NOT navigation links and don't start with '#' or 'mailto:'
@@ -515,6 +128,6 @@ Eventually, there will be a tutorial for each chapter in the book. Check again s
         }
     });
 </script>
-	
+
 </body>
 </html>
