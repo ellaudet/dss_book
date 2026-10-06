@@ -274,6 +274,12 @@ h2.highlight .icon svg {
     margin: 0 0 6px;
 }
 
+/* The bolded D, S, S in the book title show where "DSS" comes from; they stay the same gray */
+.lede strong {
+    font-weight: 700;
+    color: inherit;
+}
+
 /* ---------- Lists ---------- */
 
 .card ul,
