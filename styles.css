@@ -405,8 +405,13 @@ h2.highlight .icon svg {
         margin-top: 6px;
     }
 
-    /* Long description is hidden on phones/tablets to keep the header easy to read */
+    /* On phones/tablets only the short opening of the description is shown,
+       to keep the header easy to read */
     .header-content h3 {
+        margin-top: 6px;
+    }
+
+    .header-content h3 .more {
         display: none;
     }
 
