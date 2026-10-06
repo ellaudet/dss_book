@@ -318,26 +318,14 @@ h2.highlight .icon svg {
 }
 
 .link-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
     padding: 8px 4px;
     border-radius: 6px;
-}
-
-.link-list a::after {
-    content: "→";
-    color: var(--coral);
-    transition: transform 0.15s ease;
 }
 
 .link-list a:hover {
     background: var(--coral-tint);
     text-decoration: none;
-}
-
-.link-list a:hover::after {
-    transform: translateX(3px);
 }
 
 /* Resource rows (resources page) */
